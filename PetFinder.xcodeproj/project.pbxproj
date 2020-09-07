@@ -60,7 +60,10 @@
 			children = (
 				205D84182505D9580010876B /* AppDelegate.swift */,
 				205D841A2505D9580010876B /* SceneDelegate.swift */,
-				205D841C2505D9580010876B /* ViewController.swift */,
+				205D84322505DAEF0010876B /* Services */,
+				205D84302505DACE0010876B /* View */,
+				205D84312505DAE30010876B /* Controller */,
+				205D842F2505DABD0010876B /* Model */,
 				205D841E2505D9580010876B /* Main.storyboard */,
 				205D84242505D95A0010876B /* Assets.xcassets */,
 				205D84262505D95A0010876B /* LaunchScreen.storyboard */,
@@ -68,6 +71,43 @@
 				205D84212505D9590010876B /* PetFinder.xcdatamodeld */,
 			);
 			path = PetFinder;
+			sourceTree = "<group>";
+		};
+		205D842F2505DABD0010876B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				205D84332505DCDB0010876B /* Helpers */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		205D84302505DACE0010876B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		205D84312505DAE30010876B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				205D841C2505D9580010876B /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		205D84322505DAEF0010876B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		205D84332505DCDB0010876B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
