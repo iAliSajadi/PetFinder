@@ -7,25 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200521372505EA3C0054B3AD /* PetFinderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200521362505EA3C0054B3AD /* PetFinderAPI.swift */; };
+		200521392505EDDB0054B3AD /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200521382505EDDB0054B3AD /* Store.swift */; };
+		2005213B2505FAE20054B3AD /* UserAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005213A2505FAE20054B3AD /* UserAlerts.swift */; };
+		2005213D2505FCCB0054B3AD /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005213C2505FCCB0054B3AD /* Token.swift */; };
 		205D84192505D9580010876B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205D84182505D9580010876B /* AppDelegate.swift */; };
 		205D841B2505D9580010876B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205D841A2505D9580010876B /* SceneDelegate.swift */; };
-		205D841D2505D9580010876B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205D841C2505D9580010876B /* ViewController.swift */; };
 		205D84202505D9580010876B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 205D841E2505D9580010876B /* Main.storyboard */; };
 		205D84232505D9590010876B /* PetFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 205D84212505D9590010876B /* PetFinder.xcdatamodeld */; };
 		205D84252505D95A0010876B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 205D84242505D95A0010876B /* Assets.xcassets */; };
 		205D84282505D95A0010876B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 205D84262505D95A0010876B /* LaunchScreen.storyboard */; };
+		205D84352505DF0B0010876B /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205D84342505DF0B0010876B /* Pet.swift */; };
+		205D84382505E02A0010876B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205D84362505E02A0010876B /* LoginViewController.swift */; };
+		205D84392505E02A0010876B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 205D84372505E02A0010876B /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		200521362505EA3C0054B3AD /* PetFinderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFinderAPI.swift; sourceTree = "<group>"; };
+		200521382505EDDB0054B3AD /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		2005213A2505FAE20054B3AD /* UserAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAlerts.swift; sourceTree = "<group>"; };
+		2005213C2505FCCB0054B3AD /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		205D84152505D9580010876B /* PetFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		205D84182505D9580010876B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		205D841A2505D9580010876B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		205D841C2505D9580010876B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		205D841F2505D9580010876B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		205D84222505D9590010876B /* PetFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PetFinder.xcdatamodel; sourceTree = "<group>"; };
 		205D84242505D95A0010876B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		205D84272505D95A0010876B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		205D84292505D95A0010876B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		205D84342505DF0B0010876B /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		205D84362505E02A0010876B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		205D84372505E02A0010876B /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,7 @@
 				205D84302505DACE0010876B /* View */,
 				205D84312505DAE30010876B /* Controller */,
 				205D842F2505DABD0010876B /* Model */,
+				205D84332505DCDB0010876B /* Helpers */,
 				205D841E2505D9580010876B /* Main.storyboard */,
 				205D84242505D95A0010876B /* Assets.xcassets */,
 				205D84262505D95A0010876B /* LaunchScreen.storyboard */,
@@ -76,7 +89,8 @@
 		205D842F2505DABD0010876B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				205D84332505DCDB0010876B /* Helpers */,
+				205D84342505DF0B0010876B /* Pet.swift */,
+				2005213C2505FCCB0054B3AD /* Token.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -84,6 +98,7 @@
 		205D84302505DACE0010876B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				205D84372505E02A0010876B /* LoginViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -91,7 +106,7 @@
 		205D84312505DAE30010876B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				205D841C2505D9580010876B /* ViewController.swift */,
+				205D84362505E02A0010876B /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -99,6 +114,8 @@
 		205D84322505DAEF0010876B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				200521362505EA3C0054B3AD /* PetFinderAPI.swift */,
+				200521382505EDDB0054B3AD /* Store.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -106,6 +123,7 @@
 		205D84332505DCDB0010876B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				2005213A2505FAE20054B3AD /* UserAlerts.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -168,6 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205D84392505E02A0010876B /* LoginViewController.xib in Resources */,
 				205D84282505D95A0010876B /* LaunchScreen.storyboard in Resources */,
 				205D84252505D95A0010876B /* Assets.xcassets in Resources */,
 				205D84202505D9580010876B /* Main.storyboard in Resources */,
@@ -181,9 +200,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				205D841D2505D9580010876B /* ViewController.swift in Sources */,
+				2005213D2505FCCB0054B3AD /* Token.swift in Sources */,
+				200521392505EDDB0054B3AD /* Store.swift in Sources */,
+				205D84352505DF0B0010876B /* Pet.swift in Sources */,
 				205D84192505D9580010876B /* AppDelegate.swift in Sources */,
+				200521372505EA3C0054B3AD /* PetFinderAPI.swift in Sources */,
 				205D841B2505D9580010876B /* SceneDelegate.swift in Sources */,
+				2005213B2505FAE20054B3AD /* UserAlerts.swift in Sources */,
+				205D84382505E02A0010876B /* LoginViewController.swift in Sources */,
 				205D84232505D9590010876B /* PetFinder.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
