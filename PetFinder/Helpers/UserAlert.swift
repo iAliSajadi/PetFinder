@@ -8,16 +8,17 @@
 
 import UIKit
 
-struct UserAlerts {
+struct UserAlert {
     
     //MARK: - Show Info Alert Method
+    
     func showInfoAlert(title: String?, message: String?, view: UIViewController, action: (() -> Void)?) {
         
         // create the alert
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         // create alert action
-        let action = UIAlertAction(title: "بله", style: .default) {_ in
+        let action = UIAlertAction(title: "Yes", style: .default) {_ in
             action!()
         }
         

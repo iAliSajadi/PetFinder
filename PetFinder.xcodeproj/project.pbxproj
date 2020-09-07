@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		200521372505EA3C0054B3AD /* PetFinderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200521362505EA3C0054B3AD /* PetFinderAPI.swift */; };
 		200521392505EDDB0054B3AD /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200521382505EDDB0054B3AD /* Store.swift */; };
-		2005213B2505FAE20054B3AD /* UserAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005213A2505FAE20054B3AD /* UserAlerts.swift */; };
+		2005213B2505FAE20054B3AD /* UserAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005213A2505FAE20054B3AD /* UserAlert.swift */; };
 		2005213D2505FCCB0054B3AD /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005213C2505FCCB0054B3AD /* Token.swift */; };
+		2036891F25062D4B00B76362 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2036891E25062D4B00B76362 /* Errors.swift */; };
+		20478080250650CE00319B06 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047807F250650CE00319B06 /* ResponseError.swift */; };
 		205D84192505D9580010876B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205D84182505D9580010876B /* AppDelegate.swift */; };
 		205D841B2505D9580010876B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205D841A2505D9580010876B /* SceneDelegate.swift */; };
 		205D84202505D9580010876B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 205D841E2505D9580010876B /* Main.storyboard */; };
@@ -25,8 +27,10 @@
 /* Begin PBXFileReference section */
 		200521362505EA3C0054B3AD /* PetFinderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFinderAPI.swift; sourceTree = "<group>"; };
 		200521382505EDDB0054B3AD /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		2005213A2505FAE20054B3AD /* UserAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAlerts.swift; sourceTree = "<group>"; };
+		2005213A2505FAE20054B3AD /* UserAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAlert.swift; sourceTree = "<group>"; };
 		2005213C2505FCCB0054B3AD /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		2036891E25062D4B00B76362 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		2047807F250650CE00319B06 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		205D84152505D9580010876B /* PetFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		205D84182505D9580010876B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		205D841A2505D9580010876B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 			children = (
 				205D84342505DF0B0010876B /* Animal.swift */,
 				2005213C2505FCCB0054B3AD /* Token.swift */,
+				2047807F250650CE00319B06 /* ResponseError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -123,7 +128,8 @@
 		205D84332505DCDB0010876B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				2005213A2505FAE20054B3AD /* UserAlerts.swift */,
+				2005213A2505FAE20054B3AD /* UserAlert.swift */,
+				2036891E25062D4B00B76362 /* Errors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -205,8 +211,10 @@
 				205D84352505DF0B0010876B /* Animal.swift in Sources */,
 				205D84192505D9580010876B /* AppDelegate.swift in Sources */,
 				200521372505EA3C0054B3AD /* PetFinderAPI.swift in Sources */,
+				20478080250650CE00319B06 /* ResponseError.swift in Sources */,
 				205D841B2505D9580010876B /* SceneDelegate.swift in Sources */,
-				2005213B2505FAE20054B3AD /* UserAlerts.swift in Sources */,
+				2036891F25062D4B00B76362 /* Errors.swift in Sources */,
+				2005213B2505FAE20054B3AD /* UserAlert.swift in Sources */,
 				205D84382505E02A0010876B /* LoginViewController.swift in Sources */,
 				205D84232505D9590010876B /* PetFinder.xcdatamodeld in Sources */,
 			);

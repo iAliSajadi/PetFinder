@@ -26,7 +26,16 @@ struct PetFinderAPI {
             let token = try jsonDecoder.decode(Token.self, from: data)
             return .success(token)
         } catch {
-            return .failure(error)
+            return .failure(ParseJSONError.BadJSONFormat)
+        }
+    }
+    
+    static func parseResponseError(JSONError data: Data) -> Result<ResponseError, Error> {
+        do {
+            let responseError = try jsonDecoder.decode(ResponseError.self, from: data)
+            return .success(responseError)
+        } catch {
+            return .failure(ParseJSONError.BadJSONFormat)
         }
     }
 }
