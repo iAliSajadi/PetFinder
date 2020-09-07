@@ -20,60 +20,76 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Petfinder Logo" translatesAutoresizingMaskIntoConstraints="NO" id="UJ2-3S-jbx">
-                    <rect key="frame" x="67" y="129" width="240" height="132"/>
-                </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1l6-2I-Utc">
-                    <rect key="frame" x="67" y="368" width="240" height="141"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ieP-c4-ZlM" userLabel="Adaptive Stack View">
+                    <rect key="frame" x="48" y="207.66666666666663" width="279" height="407"/>
                     <subviews>
-                        <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="API KEY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X62-JG-az5">
-                            <rect key="frame" x="0.0" y="0.0" width="240" height="34"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="SECRET" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rOD-mF-3qH">
-                            <rect key="frame" x="0.0" y="42" width="240" height="34"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                        </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofP-dr-8N9">
-                            <rect key="frame" x="0.0" y="84" width="240" height="15"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="15" id="iAe-p6-zjO"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNs-nc-PQE">
-                            <rect key="frame" x="0.0" y="107" width="240" height="34"/>
-                            <state key="normal" title="LOG IN" backgroundImage="Login Button">
-                                <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </state>
-                            <connections>
-                                <action selector="login:" destination="-1" eventType="touchUpInside" id="Njo-Br-Az7"/>
-                            </connections>
-                        </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Petfinder Logo" translatesAutoresizingMaskIntoConstraints="NO" id="UJ2-3S-jbx">
+                            <rect key="frame" x="0.0" y="0.0" width="279" height="132"/>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-12" translatesAutoresizingMaskIntoConstraints="NO" id="p8H-cC-T2j" userLabel="Form Stack View">
+                            <rect key="frame" x="0.0" y="140" width="279" height="267"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahQ-br-UVl">
+                                    <rect key="frame" x="0.0" y="0.0" width="279" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="IM7-Xl-RzV">
+                                            <variation key="heightClass=compact" constant="25"/>
+                                        </constraint>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cats &amp; Dogs login Image" translatesAutoresizingMaskIntoConstraints="NO" id="sHm-bG-BTg">
+                                    <rect key="frame" x="0.0" y="38" width="279" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="2KC-H9-Cyn"/>
+                                    </constraints>
+                                </imageView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1l6-2I-Utc">
+                                    <rect key="frame" x="0.0" y="126" width="279" height="141"/>
+                                    <subviews>
+                                        <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="API KEY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X62-JG-az5">
+                                            <rect key="frame" x="0.0" y="0.0" width="279" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="SECRET" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rOD-mF-3qH">
+                                            <rect key="frame" x="0.0" y="41.999999999999943" width="279" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofP-dr-8N9">
+                                            <rect key="frame" x="0.0" y="83.999999999999943" width="279" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="iAe-p6-zjO"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNs-nc-PQE">
+                                            <rect key="frame" x="0.0" y="106.99999999999994" width="279" height="34"/>
+                                            <state key="normal" title="LOG IN" backgroundImage="Login Button">
+                                                <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="login:" destination="-1" eventType="touchUpInside" id="Njo-Br-Az7"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
                     </subviews>
+                    <variation key="heightClass=compact" axis="horizontal" distribution="fillEqually" spacing="90"/>
                 </stackView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cats &amp; Dogs login Image" translatesAutoresizingMaskIntoConstraints="NO" id="sHm-bG-BTg">
-                    <rect key="frame" x="67" y="262" width="240" height="128"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="128" id="hfU-VG-vCh"/>
-                    </constraints>
-                </imageView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="UJ2-3S-jbx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="85" id="21H-fA-nxf"/>
-                <constraint firstItem="sHm-bG-BTg" firstAttribute="leading" secondItem="1l6-2I-Utc" secondAttribute="leading" id="2tE-sU-zLY"/>
-                <constraint firstItem="1l6-2I-Utc" firstAttribute="leading" secondItem="UJ2-3S-jbx" secondAttribute="leading" id="4Uk-Pc-SDw"/>
-                <constraint firstItem="sHm-bG-BTg" firstAttribute="trailing" secondItem="1l6-2I-Utc" secondAttribute="trailing" id="9pu-H3-fLA"/>
-                <constraint firstItem="sHm-bG-BTg" firstAttribute="top" secondItem="UJ2-3S-jbx" secondAttribute="bottom" constant="1" id="KQC-xy-L3z"/>
-                <constraint firstItem="1l6-2I-Utc" firstAttribute="trailing" secondItem="UJ2-3S-jbx" secondAttribute="trailing" id="aGn-My-Xa7"/>
-                <constraint firstItem="UJ2-3S-jbx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="67" id="hJf-qt-tgt"/>
-                <constraint firstItem="1l6-2I-Utc" firstAttribute="top" secondItem="UJ2-3S-jbx" secondAttribute="bottom" constant="107" id="jds-Qo-Whs"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UJ2-3S-jbx" secondAttribute="trailing" constant="68" id="sP9-CA-dqk"/>
+                <constraint firstAttribute="trailingMargin" secondItem="ieP-c4-ZlM" secondAttribute="trailing" constant="32" id="e0d-Kv-0Lh"/>
+                <constraint firstItem="ieP-c4-ZlM" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="oaF-JE-ERe"/>
+                <constraint firstItem="ieP-c4-ZlM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="32" id="ood-7q-9ZD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="132" y="153.69458128078819"/>

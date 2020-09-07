@@ -16,6 +16,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     let store = Store()
     let userAlert = UserAlert()
+    let showPasswordImageView = UIImageView()
+    var tapShowSecret = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +28,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         // Calling required method
         createTapGestureRecognizer()
+        showSecret()
+        
+        // Setting required property
+        self.navigationController?.navigationBar.isHidden = true
     }
     
+    //MARK: - Login method
+
     @IBAction func login(_ sender: UIButton) {
         
         let APIKey = APIKeyTextField.text?.trimmingCharacters(in: .whitespaces)
@@ -82,5 +90,33 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if textField.tag == 1 {
             APIKeyTextField.text = APIKeyTextField.text?.trimmingCharacters(in: .whitespaces)
         }
+    }
+    
+    //MARK: - Show Secret method
+
+    private func showSecret(){
+        
+        showPasswordImageView.image = UIImage(named: "Eye Splash")
+        showPasswordImageView.isUserInteractionEnabled = true
+
+        secretTextField.rightView = showPasswordImageView
+        secretTextField.rightViewMode = .always
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleShowSecret))
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        showPasswordImageView.addGestureRecognizer(tapGestureRecognizer)
+        
+    }
+    
+    @objc func toggleShowSecret() {
+        if(tapShowSecret == true) {
+            secretTextField.isSecureTextEntry = false
+            showPasswordImageView.image = UIImage(named: "Eye")
+        } else {
+            secretTextField.isSecureTextEntry = true
+            showPasswordImageView.image = UIImage(named: "Eye Splash")
+        }
+        
+        tapShowSecret = !tapShowSecret
     }
 }
