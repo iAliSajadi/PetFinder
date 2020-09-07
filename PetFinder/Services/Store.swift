@@ -8,15 +8,17 @@
 
 import Foundation
 
-struct Store {
+class Store {
     
-    static let session: URLSession = {
+    private var accessToken: String!
+    private let session: URLSession = {
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
     }()
     
-    static func tokenRequest(APIKey: String, secret: String, completion: @escaping (Result<String, Error>) -> Void) {
-        guard let url = URL(string: PetFinderAPI.baseURL) else {
+    func tokenRequest(APIKey: String, secret: String, completion: @escaping (String) -> Void) {
+        
+        guard let url = URL(string: PetFinderAPI.tokenRequestBaseURL) else {
             print("URL is invalid...!!!")
             return
         }
@@ -31,12 +33,28 @@ struct Store {
         let task = session.dataTask(with: request) { (data, response, error) in
             if let data = data, error == nil {
                 if let jsonString = String(data: data, encoding: .utf8) {
-                print(jsonString)
+                    print(jsonString)
+                }
+                let result = self.processTokenRequest(data: data, error: error)
+                switch result {
+                case let .success(token):
+                    self.accessToken = token.accessToken
+                    print(self.accessToken!)
+                    completion("ok")
+                case let .failure(error):
+                    print(error)
+                    completion("nok")
                 }
             }
         }
         task.resume()
     }
     
-    static func proceesstokenRequest(data:Data, error: Error) -> Result<String, 
+    func processTokenRequest(data: Data?, error: Error?) -> Result<Token,Error> {
+        guard let jsonData = data else {
+            print("No JSON data")
+            return .failure(error!)
+        }
+        return PetFinderAPI.getToken(jsonData: jsonData)
+    }
 }
