@@ -17,7 +17,7 @@
 		205D84232505D9590010876B /* PetFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 205D84212505D9590010876B /* PetFinder.xcdatamodeld */; };
 		205D84252505D95A0010876B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 205D84242505D95A0010876B /* Assets.xcassets */; };
 		205D84282505D95A0010876B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 205D84262505D95A0010876B /* LaunchScreen.storyboard */; };
-		205D84352505DF0B0010876B /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205D84342505DF0B0010876B /* Pet.swift */; };
+		205D84352505DF0B0010876B /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205D84342505DF0B0010876B /* Animal.swift */; };
 		205D84382505E02A0010876B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205D84362505E02A0010876B /* LoginViewController.swift */; };
 		205D84392505E02A0010876B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 205D84372505E02A0010876B /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
@@ -35,7 +35,7 @@
 		205D84242505D95A0010876B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		205D84272505D95A0010876B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		205D84292505D95A0010876B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		205D84342505DF0B0010876B /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		205D84342505DF0B0010876B /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		205D84362505E02A0010876B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		205D84372505E02A0010876B /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,7 +89,7 @@
 		205D842F2505DABD0010876B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				205D84342505DF0B0010876B /* Pet.swift */,
+				205D84342505DF0B0010876B /* Animal.swift */,
 				2005213C2505FCCB0054B3AD /* Token.swift */,
 			);
 			path = Model;
@@ -202,7 +202,7 @@
 			files = (
 				2005213D2505FCCB0054B3AD /* Token.swift in Sources */,
 				200521392505EDDB0054B3AD /* Store.swift in Sources */,
-				205D84352505DF0B0010876B /* Pet.swift in Sources */,
+				205D84352505DF0B0010876B /* Animal.swift in Sources */,
 				205D84192505D9580010876B /* AppDelegate.swift in Sources */,
 				200521372505EA3C0054B3AD /* PetFinderAPI.swift in Sources */,
 				205D841B2505D9580010876B /* SceneDelegate.swift in Sources */,

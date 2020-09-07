@@ -13,10 +13,12 @@ struct PetFinderAPI {
     static let tokenRequestBaseURL = "https://api.petfinder.com/v2/oauth2/token"
     static let RequestBaseURL = "https://api.petfinder.com/v2"
     
-    static let jsonDecoder = JSONDecoder()
+    private static var url: String!
+    private static let jsonDecoder = JSONDecoder()
     
-    static func getAnimals() {
-        
+    static func animalsURL() -> URL {
+        url = RequestBaseURL + "/animals"
+        return URL(string: url)!
     }
 
     static func getToken(jsonData data : Data) -> Result<Token, Error> {

@@ -39,7 +39,8 @@ class Store {
                 switch result {
                 case let .success(token):
                     self.accessToken = token.accessToken
-                    print(self.accessToken!)
+//                    print(self.accessToken!)
+                    UserDefaults.standard.set(self.accessToken, forKey: "accessToken")
                     completion("ok")
                 case let .failure(error):
                     print(error)
@@ -56,5 +57,22 @@ class Store {
             return .failure(error!)
         }
         return PetFinderAPI.getToken(jsonData: jsonData)
+    }
+    
+    func getAllAnimals() {
+        print(accessToken!)
+        let url = PetFinderAPI.animalsURL()
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("Bearer \(accessToken!)", forHTTPHeaderField: "Authorization")
+        print(request)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let data = data, error == nil {
+                if let jsonString = String(data: data, encoding: .utf8) {
+                    print(jsonString)
+                }
+            }
+        }
+        task.resume()
     }
 }

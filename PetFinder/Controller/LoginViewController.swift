@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
         if let APIKey = APIKeyTextField.text?.trimmingCharacters(in: .whitespaces), !APIKey.isEmpty, let secret = secretTextField.text?.trimmingCharacters(in: .whitespaces), !secret.isEmpty {
             store.tokenRequest(APIKey: APIKey, secret: secret) { result in
                 if result == "ok" {
+                    self.store.getAllAnimals()
                     print("Login successful")
                 } else {
                     print("Login failed")
