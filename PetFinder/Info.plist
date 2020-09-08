@@ -56,5 +56,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Nexa Bold</string>
+		<string>Nexa Light</string>
+	</array>
 </dict>
 </plist>

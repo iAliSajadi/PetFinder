@@ -30,8 +30,7 @@ class PetsTableViewController: UITableViewController {
             switch getAnimalsResult {
             case let .success(pets):
                 self.pets = pets
-                //                print(self.pets)
-                print(self.pets[0].name)
+                self.tableView.reloadData()
             case let .failure(error):
                 print(error)
             }
@@ -53,20 +52,15 @@ class PetsTableViewController: UITableViewController {
 //    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("........................")
         return pets.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PetsTableViewCell
-        cell.petName.text = test[indexPath.row]
-        cell.petType.text = test[indexPath.row]
-        cell.petGender.text = test[indexPath.row]
-        cell.petAge.text = test[indexPath.row]
-//        cell.petName.text = self.pets[indexPath.row].name
-//        cell.petGender.text = pets[indexPath.row].gender
-//        cell.petAge.text = pets[indexPath.row].age
-//        cell.petType.text = pets[indexPath.row].type
+        cell.petName.text = self.pets[indexPath.row].name
+        cell.petGender.text = pets[indexPath.row].gender
+        cell.petAge.text = pets[indexPath.row].age
+        cell.petBreed.text = pets[indexPath.row].breeds.primary
         return cell
     }
     

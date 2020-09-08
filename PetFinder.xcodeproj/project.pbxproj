@@ -25,6 +25,8 @@
 		20F5EF4D250819D600210E28 /* PetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F5EF4C250819D600210E28 /* PetsTableViewCell.swift */; };
 		20F5EF4F250819E700210E28 /* PetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F5EF4E250819E700210E28 /* PetsTableViewController.swift */; };
 		20F5EF51250819F700210E28 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F5EF50250819F700210E28 /* MainPageViewController.swift */; };
+		20F5EF552508242800210E28 /* Nexa Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20F5EF54250823E000210E28 /* Nexa Bold.ttf */; };
+		20F5EF562508242A00210E28 /* Nexa Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20F5EF53250823E000210E28 /* Nexa Light.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		20F5EF4C250819D600210E28 /* PetsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetsTableViewCell.swift; sourceTree = "<group>"; };
 		20F5EF4E250819E700210E28 /* PetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetsTableViewController.swift; sourceTree = "<group>"; };
 		20F5EF50250819F700210E28 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		20F5EF53250823E000210E28 /* Nexa Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa Light.ttf"; sourceTree = "<group>"; };
+		20F5EF54250823E000210E28 /* Nexa Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 				205D842F2505DABD0010876B /* Model */,
 				205D84322505DAEF0010876B /* Services */,
 				205D84332505DCDB0010876B /* Helpers */,
+				20F5EF522508223800210E28 /* Fonts */,
 				205D84242505D95A0010876B /* Assets.xcassets */,
 				205D84262505D95A0010876B /* LaunchScreen.storyboard */,
 				205D84292505D95A0010876B /* Info.plist */,
@@ -159,6 +164,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		20F5EF522508223800210E28 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				20F5EF54250823E000210E28 /* Nexa Bold.ttf */,
+				20F5EF53250823E000210E28 /* Nexa Light.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -217,9 +231,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20F5EF562508242A00210E28 /* Nexa Light.ttf in Resources */,
 				205D84392505E02A0010876B /* LoginViewController.xib in Resources */,
 				20F5EF4A250819B300210E28 /* PetsTableViewCell.xib in Resources */,
 				205D84282505D95A0010876B /* LaunchScreen.storyboard in Resources */,
+				20F5EF552508242800210E28 /* Nexa Bold.ttf in Resources */,
 				205D84252505D95A0010876B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
