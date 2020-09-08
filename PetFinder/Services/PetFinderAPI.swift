@@ -16,8 +16,13 @@ struct PetFinderAPI {
     private static var url: String!
     private static let jsonDecoder = JSONDecoder()
     
-    static func animalsURL() -> URL {
-        url = RequestBaseURL + "/animals"
+    static func petFinderURL(filter: String?) -> URL {
+        switch filter {
+        case "type":
+            url = RequestBaseURL + "/types"
+        default:
+            url = RequestBaseURL + "/animals"
+        }
         return URL(string: url)!
     }
 
@@ -26,7 +31,25 @@ struct PetFinderAPI {
             let token = try jsonDecoder.decode(Token.self, from: data)
             return .success(token)
         } catch {
-            return .failure(ParseJSONError.BadJSONFormat)
+            return .failure(error)
+        }
+    }
+    
+//    static func getAnimals(JSONData data: Data) -> Result<[Animal], Error> {
+//        do {
+//            let animals = try jsonDecoder.decode([Animal].self, from: data)
+//            return .success(animals)
+//        } catch {
+//            return .failure(error)
+//        }
+//    }
+    
+    static func getAnimals(JSONData data: Data) -> Result<[Animal], Error> {
+        do {
+            let petfinderResponse = try jsonDecoder.decode(PetfinderAPIResponse.self, from: data)
+            return .success(petfinderResponse.animals)
+        } catch {
+            return .failure(error)
         }
     }
     
@@ -35,7 +58,7 @@ struct PetFinderAPI {
             let responseError = try jsonDecoder.decode(ResponseError.self, from: data)
             return .success(responseError)
         } catch {
-            return .failure(ParseJSONError.BadJSONFormat)
+            return .failure(error)
         }
     }
 }

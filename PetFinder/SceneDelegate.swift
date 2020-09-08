@@ -29,11 +29,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         } else {
 //            navigationController.pushViewController(MainPageViewController(), animated: true)
-            do {
-                try store.getAllAnimals()
-            } catch {
-                print(error)
-            }
         }
     }
 
