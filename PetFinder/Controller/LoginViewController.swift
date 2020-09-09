@@ -14,7 +14,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var secretTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
     
-    let store = Store()
+    let store = DataStore()
     let userAlert = UserAlert()
     let showPasswordImageView = UIImageView()
     var tapShowSecret = true

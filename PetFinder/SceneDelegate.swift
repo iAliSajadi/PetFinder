@@ -11,7 +11,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    let store = Store()
+    let store = DataStore()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -25,11 +25,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
-        if UserDefaults.standard.string(forKey: "accessToken") == nil {
-            return
-        } else {
+//        if UserDefaults.standard.string(forKey: "accessToken") == nil {
+//            return
+//        } else {
 //            navigationController.pushViewController(MainPageViewController(), animated: true)
-        }
+//        }
+        
+        //Mark: Setup Navigation bar
+
+//        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationItem.largeTitleDisplayMode = .always
+//        UINavigationBar.appearance().barTintColor = UIColor(red: 102, green: 4, blue: 179, alpha: 1)
+//        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font: UIFont(name: "Nexa Bold", size: 45)!]
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -63,6 +71,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
-
 }
-

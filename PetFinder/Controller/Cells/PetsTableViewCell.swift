@@ -15,6 +15,9 @@ class PetsTableViewCell: UITableViewCell {
     @IBOutlet var petAge: UILabel!
     @IBOutlet var petGender: UILabel!
     @IBOutlet var petImage: UIImageView!
+    @IBOutlet var cellView: UIView!
+    @IBOutlet var cell: UIView!
+    @IBOutlet var spinner: UIActivityIndicatorView!
     
 //    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 //        super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -27,6 +30,6 @@ class PetsTableViewCell: UITableViewCell {
 //    }
 //    
 //    private func configureImageView() {
-//        petImage.layer.cornerRadius = 10
+//        
 //    }
 }

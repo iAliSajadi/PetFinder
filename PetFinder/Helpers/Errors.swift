@@ -19,3 +19,8 @@ enum StoreError: Error {
 enum ParseJSONError: Error {
     case BadJSONFormat
 }
+
+enum PhotoError: Error {
+    case imageCreationError
+    case missingPhotosURLs
+}
