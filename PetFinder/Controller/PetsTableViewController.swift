@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PetsTableViewControllerDelegate {
+    func sendSelectedPet(selectedPet: Animal)
+}
+
 class PetsTableViewController: UITableViewController {
     
     private let identifier = "petsTableViewCell"
@@ -15,8 +19,7 @@ class PetsTableViewController: UITableViewController {
     private var pets = [Animal]()
     private var petPhoto: UIImage!
     private let store = DataStore()
-    
-    var test = ["1", "2", "3"]
+    var delegate: PetsTableViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,7 @@ class PetsTableViewController: UITableViewController {
         getAnimals()
         setupTableView()
         setupNavigationBar()
+        
     }
     
     // MARK: - Get animals method
@@ -34,6 +38,7 @@ class PetsTableViewController: UITableViewController {
             case let .success(pets):
                 self.pets = pets
                 self.tableView.reloadData()
+//                self.refreshControl?.endRefreshing()
             case let .failure(error):
                 print(error)
             }
@@ -42,7 +47,7 @@ class PetsTableViewController: UITableViewController {
     
     // MARK: - Get pet Photos
     
-    private func getPetPhotos(at index: Int) -> UIImage {
+    @objc private func getPetPhotos(at index: Int) -> UIImage {
         var petPhoto: UIImage!
 //        print(pets[0].photos)
 //        store.getPetPhotos(for: pets[index].photos) { (getPetPhotosResult) in
@@ -60,7 +65,7 @@ class PetsTableViewController: UITableViewController {
             petPhoto = petPhotos.first!
         case let .failure(error):
             print(error)
-            petPhoto = UIImage(named: "No Image")!
+            petPhoto = UIImage(named: "No Photo")!
         }
         return petPhoto
     }
@@ -76,16 +81,17 @@ class PetsTableViewController: UITableViewController {
     // MARK: - Setup table view
     
     private func setupTableView() {
+        
         tableView.register(UINib(nibName: "PetsTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
         tableView.rowHeight = 115
+        
+//        refreshControl = UIRefreshControl()
+//        refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
+//        refreshControl!.tintColor = UIColor(red: 102/255, green: 4/255, blue: 179/255, alpha: 1.0)
+//        refreshControl!.addTarget(self, action: #selector(getPetPhotos(at:)), for: .valueChanged)
     }
     
     // MARK: - Table view data source
-    
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        print("........................")
-//        return 1
-//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pets.count
@@ -94,9 +100,6 @@ class PetsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         index = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PetsTableViewCell
-        
-        cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 7
-        cell.petImage.layer.cornerRadius = cell.petImage.frame.height / 7
         
         cell.petName.text = self.pets[indexPath.row].name
         cell.petGender.text = pets[indexPath.row].gender
@@ -107,21 +110,12 @@ class PetsTableViewController: UITableViewController {
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        print("..................")
-//        getAnimals()
-//        petPhoto = getPetPhotos(at: indexPath.row)
-//    }
-    
-    //    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    //        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 44))
-    //        let headerTextField = UITextField(frame: CGRect(x: 20, y: 20, width: headerView.frame.width - 8, height: headerView.frame.height - 10))
-    //        headerView.addSubview(headerTextField)
-    //        return headerView
-    //    }
-    //
-    //    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    //        return 50
-    //    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let index = tableView.indexPathForSelectedRow?.row {
+            let pet = self.pets[index]
+            delegate.sendSelectedPet(selectedPet: pet)
+            self.navigationController?.pushViewController(PetDetailsViewController(), animated: true)
+        }
+    }
     
 }

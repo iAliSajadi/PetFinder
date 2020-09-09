@@ -89,8 +89,8 @@ struct Photo: Codable {
 }
 
 struct Contact: Codable {
-    let email: String
-    let phone: String
+    let email: String?
+    let phone: String?
 }
 
 //enum Size: String, Codable {

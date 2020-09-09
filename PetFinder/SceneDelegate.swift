@@ -31,13 +31,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            navigationController.pushViewController(MainPageViewController(), animated: true)
 //        }
         
-        //Mark: Setup Navigation bar
+        //MARK:- Setup Navigation bar
 
-//        navigationController.navigationBar.prefersLargeTitles = true
-        navigationController.navigationItem.largeTitleDisplayMode = .always
-//        UINavigationBar.appearance().barTintColor = UIColor(red: 102, green: 4, blue: 179, alpha: 1)
-//        UINavigationBar.appearance().tintColor = .white
-        UINavigationBar.appearance().largeTitleTextAttributes = [.font: UIFont(name: "Nexa Bold", size: 45)!]
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00)
+//        UINavigationBar.appearance().tintColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00)
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font: UIFont(name: "Nexa Bold", size: 35)!, .foregroundColor: UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00)]
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -19,6 +19,16 @@ class PetsTableViewCell: UITableViewCell {
     @IBOutlet var cell: UIView!
     @IBOutlet var spinner: UIActivityIndicatorView!
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        cellView.layer.cornerRadius = cellView.frame.height / 7
+        petImage.layer.cornerRadius = petImage.frame.height / 7
+        petImage.layer.borderColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00).cgColor
+        petImage.layer.cornerRadius = 5.0
+        petImage.layer.borderWidth = 2
+    }
+    
 //    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 //        super.init(style: style, reuseIdentifier: reuseIdentifier)
 //        

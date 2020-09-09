@@ -9,11 +9,14 @@
 import UIKit
 
 class PetDetailsViewController: UIViewController {
-
+    
+    var pet: Animal! = nil
+    @IBOutlet var species: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        
     }
 
 
@@ -27,4 +30,12 @@ class PetDetailsViewController: UIViewController {
     }
     */
 
+}
+
+extension PetDetailsViewController: PetsTableViewControllerDelegate {
+    func sendSelectedPet(selectedPet: Animal) {
+        pet = selectedPet
+    }
+    
+    
 }
