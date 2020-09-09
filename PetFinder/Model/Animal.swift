@@ -16,19 +16,23 @@ struct PetfinderAPIResponse: Codable {
 struct Animal: Codable {
     let id: Int
     let type: String
+    let name: String
     let species: String
     let breeds: Breeds
-    let colors: Colors
     let age: String
     let gender: String
     let size: String
+    let colors: Colors
     let attributes: Attributes
-    let name: String
+    let status: String
+    let contact: Contact
+    let organizationId: String
     let photos: [Photo]
     
     enum CodingKeys: String, CodingKey {
         case id
-        case type, species, breeds, colors, age, gender, size, attributes, name
+        case type, name, species, breeds, age, gender, size, colors, attributes, status, contact
+        case organizationId = "organization_id"
         case photos
     }
 }
@@ -82,6 +86,11 @@ struct Colors: Codable {
 // MARK: - Photo
 struct Photo: Codable {
     let small, medium, large, full: String
+}
+
+struct Contact: Codable {
+    let email: String
+    let phone: String
 }
 
 //enum Size: String, Codable {
