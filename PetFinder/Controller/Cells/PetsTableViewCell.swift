@@ -17,7 +17,6 @@ class PetsTableViewCell: UITableViewCell {
     @IBOutlet var petImage: UIImageView!
     @IBOutlet var cellView: UIView!
     @IBOutlet var cell: UIView!
-    @IBOutlet var spinner: UIActivityIndicatorView!
     
     override func layoutSubviews() {
         super.layoutSubviews()

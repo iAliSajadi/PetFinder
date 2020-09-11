@@ -11,20 +11,52 @@ import UIKit
 struct PetFinderAPI {
     
     static let tokenRequestBaseURL = "https://api.petfinder.com/v2/oauth2/token"
-    static let RequestBaseURL = "https://api.petfinder.com/v2"
+    static let requestBaseURL = "https://api.petfinder.com/v2"
     
     private static var url: String!
     private static let jsonDecoder = JSONDecoder()
     
-    static func petFinderURL(filter: String?) -> URL {
-        switch filter {
-        case "type":
-            url = RequestBaseURL + "/types"
-        default:
-            url = RequestBaseURL + "/animals"
-        }
+    static func getPetsURL() -> URL{
+        url = requestBaseURL + "/animals"
         return URL(string: url)!
     }
+    
+//    static func filterPetsURL(filterPetType: String?, filterPetBreed: Bool, filterPet: [String:String]?) -> URL {
+//        let urlComponents = URLComponents(string: requestBaseURL)
+//            
+//        switch filterPetType {
+//        case let petType:
+//            url = requestBaseURL + "/types/\(String(describing: petType))"
+//            if filterPetBreed {
+//                url = requestBaseURL + "/types/\(String(describing: petType))/breeds"
+//                if let filterPet = filterPet {
+//                    for (key, value) in filterPet {
+//                        var queryParams = [URLQueryItem]()
+//                        let queryParam = URLQueryItem(name: key, value: value)
+//                        queryParams.append(queryParam)
+//                        return (urlComponents?.url)!
+//                    }
+//                }
+//            }
+//        }
+//        return URL(string: url)!
+//    }
+//        
+//        static func filterPetTypeURL(petType: String?) -> URL {
+//            url = requestBaseURL + "/types/\(String(describing: petType))"
+//            return URL(string: url)!
+//        }
+//    
+//    static func filterPetBreedURL(petBreed: String?) -> URL {
+//        url = requestBaseURL + "/types/\(String(describing: petBreed))"
+//        return URL(string: url)!
+//    }
+//    
+//    static func filterPet(filterPetType: Bool, filterPetBreed: Bool, filterPet: [String:String]?) -> URL {
+//        if filterPetType {
+//            url = requestBaseURL + "/types/\(petType)"
+//        }
+//    }
 
     static func getToken(jsonData data : Data) -> Result<Token, Error> {
         do {
@@ -43,8 +75,7 @@ struct PetFinderAPI {
 //            return .failure(error)
 //        }
 //    }
-    
-    static func getAnimals(JSONData data: Data) -> Result<[Animal], Error> {
+    static func getAnimals(JSONData data: Data) -> Result<[Pet], Error> {
         do {
             let petfinderResponse = try jsonDecoder.decode(PetfinderAPIResponse.self, from: data)
             return .success(petfinderResponse.animals)

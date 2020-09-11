@@ -10,92 +10,113 @@
         <array key="Nexa Bold.ttf">
             <string>NexaBold</string>
         </array>
+        <array key="Nexa Light.ttf">
+            <string>NexaLight</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="petsTableViewCell" rowHeight="114" id="KGk-i7-Jjw" customClass="PetsTableViewCell" customModule="PetFinder" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="386" height="115"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="petsTableViewCell" rowHeight="116" id="KGk-i7-Jjw" customClass="PetsTableViewCell" customModule="PetFinder" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="386" height="116"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="386" height="115"/>
+                <rect key="frame" x="0.0" y="0.0" width="386" height="116"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWj-ly-fQ7">
-                        <rect key="frame" x="5" y="5" width="376" height="105"/>
+                        <rect key="frame" x="8" y="8" width="370" height="100"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j8g-dO-43W">
-                                <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                <rect key="frame" x="0.0" y="0.0" width="85" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="105" id="oPR-b3-FdD"/>
-                                    <constraint firstAttribute="width" constant="105" id="vrZ-68-zqK"/>
+                                    <constraint firstAttribute="width" constant="85" id="ED0-UP-56N"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="khL-pB-UYo">
-                                <rect key="frame" x="115" y="0.0" width="253" height="97"/>
+                                <rect key="frame" x="110" y="8" width="252" height="84"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9W-zi-ng3">
-                                        <rect key="frame" x="0.0" y="0.0" width="253" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="252" height="39"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NG6-Xi-Zrq">
-                                                <rect key="frame" x="0.0" y="0.0" width="253" height="36"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="252" height="39"/>
                                                 <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="20"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="O7L-5p-K34">
-                                        <rect key="frame" x="0.0" y="36" width="253" height="61"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-120" translatesAutoresizingMaskIntoConstraints="NO" id="hA4-Jq-xWk">
+                                        <rect key="frame" x="0.0" y="39" width="252" height="45"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xf6-oT-LRz">
-                                                <rect key="frame" x="0.0" y="0.0" width="253" height="17"/>
-                                                <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwj-NZ-WB5">
-                                                <rect key="frame" x="0.0" y="22" width="253" height="17"/>
-                                                <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="We4-qz-0FI">
-                                                <rect key="frame" x="0.0" y="44" width="253" height="17"/>
-                                                <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GGn-ZY-f0F">
+                                                <rect key="frame" x="0.0" y="0.0" width="186" height="45"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Age:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKj-VE-FFK">
+                                                        <rect key="frame" x="0.0" y="0.0" width="186" height="15"/>
+                                                        <fontDescription key="fontDescription" name="NexaLight" family="Nexa Light" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4s-Pf-Enx">
+                                                        <rect key="frame" x="0.0" y="15" width="186" height="15"/>
+                                                        <fontDescription key="fontDescription" name="NexaLight" family="Nexa Light" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0i-O1-ngY">
+                                                        <rect key="frame" x="0.0" y="30" width="186" height="15"/>
+                                                        <fontDescription key="fontDescription" name="NexaLight" family="Nexa Light" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="O7L-5p-K34">
+                                                <rect key="frame" x="66" y="0.0" width="186" height="45"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xf6-oT-LRz">
+                                                        <rect key="frame" x="0.0" y="0.0" width="186" height="15"/>
+                                                        <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwj-NZ-WB5">
+                                                        <rect key="frame" x="0.0" y="15" width="186" height="15"/>
+                                                        <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="We4-qz-0FI">
+                                                        <rect key="frame" x="0.0" y="30" width="186" height="15"/>
+                                                        <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="O7L-5p-K34" firstAttribute="top" secondItem="khL-pB-UYo" secondAttribute="top" constant="36" id="opB-Vu-vPd"/>
-                                </constraints>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="PaU-gD-TBl">
-                                <rect key="frame" x="42" y="42" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="j8g-dO-43W" secondAttribute="bottom" id="7zD-6j-pRE"/>
-                            <constraint firstItem="j8g-dO-43W" firstAttribute="leading" secondItem="FWj-ly-fQ7" secondAttribute="leading" id="Ec4-Tp-imH"/>
-                            <constraint firstAttribute="bottom" secondItem="khL-pB-UYo" secondAttribute="bottom" constant="8" id="RtC-v0-HQQ"/>
-                            <constraint firstItem="j8g-dO-43W" firstAttribute="top" secondItem="FWj-ly-fQ7" secondAttribute="top" id="ah8-Ia-Vbm"/>
-                            <constraint firstAttribute="trailing" secondItem="khL-pB-UYo" secondAttribute="trailing" constant="8" id="cwO-ar-l5O"/>
-                            <constraint firstItem="khL-pB-UYo" firstAttribute="leading" secondItem="j8g-dO-43W" secondAttribute="trailing" constant="10" id="h31-Hf-F4K"/>
-                            <constraint firstItem="khL-pB-UYo" firstAttribute="top" secondItem="FWj-ly-fQ7" secondAttribute="top" id="wT1-b2-PqK"/>
+                            <constraint firstAttribute="bottom" secondItem="khL-pB-UYo" secondAttribute="bottom" constant="8" id="2iE-Dp-0D0"/>
+                            <constraint firstAttribute="trailing" secondItem="khL-pB-UYo" secondAttribute="trailing" constant="8" id="39b-Qg-kXb"/>
+                            <constraint firstItem="khL-pB-UYo" firstAttribute="top" secondItem="FWj-ly-fQ7" secondAttribute="top" constant="8" id="Hok-nu-VSV"/>
+                            <constraint firstItem="khL-pB-UYo" firstAttribute="leading" secondItem="j8g-dO-43W" secondAttribute="trailing" constant="25" id="Zry-2z-5gG"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="FWj-ly-fQ7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Eq9-ey-YKw"/>
-                    <constraint firstItem="FWj-ly-fQ7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="RMa-Qv-cxa"/>
-                    <constraint firstAttribute="trailing" secondItem="FWj-ly-fQ7" secondAttribute="trailing" constant="5" id="ULe-SM-i0E"/>
-                    <constraint firstAttribute="bottom" secondItem="FWj-ly-fQ7" secondAttribute="bottom" constant="5" id="Yae-qg-zhK"/>
-                    <constraint firstAttribute="bottom" secondItem="FWj-ly-fQ7" secondAttribute="bottom" constant="5" id="amb-vv-K2f"/>
-                    <constraint firstItem="FWj-ly-fQ7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="dgu-M0-YsU"/>
+                    <constraint firstAttribute="bottom" secondItem="j8g-dO-43W" secondAttribute="bottom" constant="8" id="0aK-dv-Jko"/>
+                    <constraint firstItem="j8g-dO-43W" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="295-8Y-WCl"/>
+                    <constraint firstAttribute="trailing" secondItem="FWj-ly-fQ7" secondAttribute="trailing" constant="8" id="3dd-2m-CTj"/>
+                    <constraint firstItem="FWj-ly-fQ7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="6va-gE-3tB"/>
+                    <constraint firstItem="j8g-dO-43W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="H2p-g8-5br"/>
+                    <constraint firstItem="FWj-ly-fQ7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="csl-d6-7UZ"/>
+                    <constraint firstAttribute="bottom" secondItem="FWj-ly-fQ7" secondAttribute="bottom" constant="8" id="dyB-RJ-FGb"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -107,9 +128,8 @@
                 <outlet property="petGender" destination="Gwj-NZ-WB5" id="eu1-Tm-C7e"/>
                 <outlet property="petImage" destination="j8g-dO-43W" id="0RW-3Y-aHu"/>
                 <outlet property="petName" destination="NG6-Xi-Zrq" id="hcY-d5-yzw"/>
-                <outlet property="spinner" destination="PaU-gD-TBl" id="InN-l5-CTc"/>
             </connections>
-            <point key="canvasLocation" x="31.884057971014496" y="21.09375"/>
+            <point key="canvasLocation" x="31.884057971014496" y="21.428571428571427"/>
         </tableViewCell>
     </objects>
 </document>

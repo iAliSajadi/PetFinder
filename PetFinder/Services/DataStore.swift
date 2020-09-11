@@ -79,8 +79,8 @@ class DataStore {
     
     //MARK:- Get animals request method
 
-    func getAnimals(filter: String?, Completion: @escaping (Result<[Animal],Error>) -> Void) {
-        let url = PetFinderAPI.petFinderURL(filter: filter)
+    func getPets(Completion: @escaping (Result<[Pet],Error>) -> Void) {
+        let url = PetFinderAPI.getPetsURL()
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
@@ -108,22 +108,22 @@ class DataStore {
                 //                    }
                 //                }
                 
-                //                if let jsonString = String(data: data, encoding: .utf8) {
-                //                    print(jsonString)
-                //                }
+//                if let jsonString = String(data: data, encoding: .utf8) {
+//                    print(jsonString)
+//                }
                 
-                let getAnimalsResult = self.processGetAnimalsRequest(data: data, error: error)
+                let getPetsResult = self.processGetPetsRequest(data: data, error: error)
                 OperationQueue.main.addOperation {
-                    Completion(getAnimalsResult)
+                    Completion(getPetsResult)
                 }
             }
         }
         task.resume()
     }
     
-    //MARK:- Process the get animals request method
-
-    private func processGetAnimalsRequest(data: Data?, error: Error?) -> Result<[Animal],Error> {
+    //MARK:- Process the get animals request
+    
+    private func processGetPetsRequest(data: Data?, error: Error?) -> Result<[Pet],Error> {
         guard let JSONData = data else {
             return .failure(StoreError.NoJSONData)
         }
