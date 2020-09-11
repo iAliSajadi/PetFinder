@@ -12,6 +12,7 @@ class PetDetailsViewController: UIViewController {
     
     var pet: Pet!
     var sentPetImage: UIImage?
+    var sentPetImages = [UIImage]()
     let identifier = "collectionViewCell"
     
     @IBOutlet var petImage: UIImageView!
@@ -249,16 +250,30 @@ class PetDetailsViewController: UIViewController {
 extension PetDetailsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        
+        if !sentPetImages.isEmpty {
+            return sentPetImages.count
+        } else {
+            return 6
+        }
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PetDetailsCollectionViewCell
+        
+        if !sentPetImages.isEmpty {
+            cell.petImage.image = sentPetImages[indexPath.row]
+        } else {
+            cell.petImage.image = UIImage(named: "No Photo")
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.width / 3) - 16, height: 184)
+//        return CGSize(width: (collectionView.frame.width / 3) - 16, height: 184)
+        return CGSize(width: 100, height: 80)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

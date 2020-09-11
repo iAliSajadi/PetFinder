@@ -12,6 +12,7 @@
 		2005213B2505FAE20054B3AD /* UserAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005213A2505FAE20054B3AD /* UserAlert.swift */; };
 		2005213D2505FCCB0054B3AD /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005213C2505FCCB0054B3AD /* Token.swift */; };
 		20279BEA250BA2240019AF48 /* PetsDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20279BE9250BA2240019AF48 /* PetsDetailsCollectionViewCell.swift */; };
+		20279BEC250BBC520019AF48 /* CheckNetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20279BEB250BBC520019AF48 /* CheckNetworkReachability.swift */; };
 		2036891F25062D4B00B76362 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2036891E25062D4B00B76362 /* Errors.swift */; };
 		20478080250650CE00319B06 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047807F250650CE00319B06 /* ResponseError.swift */; };
 		205D84192505D9580010876B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205D84182505D9580010876B /* AppDelegate.swift */; };
@@ -41,6 +42,7 @@
 		2005213A2505FAE20054B3AD /* UserAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAlert.swift; sourceTree = "<group>"; };
 		2005213C2505FCCB0054B3AD /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		20279BE9250BA2240019AF48 /* PetsDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		20279BEB250BBC520019AF48 /* CheckNetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNetworkReachability.swift; sourceTree = "<group>"; };
 		2036891E25062D4B00B76362 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		2047807F250650CE00319B06 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		205D84152505D9580010876B /* PetFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +163,7 @@
 			children = (
 				2005213A2505FAE20054B3AD /* UserAlert.swift */,
 				2036891E25062D4B00B76362 /* Errors.swift */,
+				20279BEB250BBC520019AF48 /* CheckNetworkReachability.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				2005213D2505FCCB0054B3AD /* Token.swift in Sources */,
 				200521392505EDDB0054B3AD /* DataStore.swift in Sources */,
 				20F5EF4F250819E700210E28 /* PetsTableViewController.swift in Sources */,
+				20279BEC250BBC520019AF48 /* CheckNetworkReachability.swift in Sources */,
 				205D84352505DF0B0010876B /* Pet.swift in Sources */,
 				20B73179250A089700119193 /* PetBreed.swift in Sources */,
 				205F4E3B25091C4A005008F1 /* PetDetailsViewController.swift in Sources */,

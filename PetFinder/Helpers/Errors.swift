@@ -23,4 +23,5 @@ enum ParseJSONError: Error {
 enum PhotoError: Error {
     case imageCreationError
     case missingPhotosURLs
+    case downloadImageError
 }

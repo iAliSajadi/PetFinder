@@ -22,15 +22,36 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Specify delegates
         APIKeyTextField.delegate = self
         secretTextField.delegate = self
         
-        // Calling required method
         createTapGestureRecognizer()
         showSecret()
-        
-        // Setting required property
+        setupNavigationBar()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkUserSession()
+    }
+    
+    
+    //MARK:- Check UserDefaults for auto login
+
+    private func checkUserSession() {
+
+        if UserDefaults.standard.string(forKey: "accessToken") == nil {
+            return
+        } else if !CheckNetworkReachability.isConnectedToNetwork() {
+            userAlert.showInfoAlert(title: "Network Reachability Error" , message: "Internet Connection not Available!", view: self, action: ({}))
+        } else {
+            navigationController!.pushViewController(MainPageViewController(), animated: true)
+        }
+    }
+    
+    //MARK:- Setup navigation bar
+    
+    private func setupNavigationBar() {
         self.navigationController?.navigationBar.isHidden = true
     }
     

@@ -12,6 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     let store = DataStore()
+//    let userAlert = UserAlert()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -21,12 +22,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow()
         window?.windowScene = windowScene
-        let navigationController = UINavigationController(rootViewController: MainPageViewController())
+        let navigationController = UINavigationController(rootViewController: LoginViewController())
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
+//        //MARK:- Check UserDefaults for auto login
+//
 //        if UserDefaults.standard.string(forKey: "accessToken") == nil {
 //            return
+//        } else if !CheckNetworkReachability.isConnectedToNetwork() {
+//            userAlert.showInfoAlert(title: "Network Reachability Error" , message: "Internet Connection not Available!", view: LoginViewController(), action: ({}))
 //        } else {
 //            navigationController.pushViewController(MainPageViewController(), animated: true)
 //        }

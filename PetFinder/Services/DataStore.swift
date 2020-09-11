@@ -11,6 +11,8 @@ import UIKit
 class DataStore {
     
     let imageStore = ImageStore()
+    var accessToken: String!
+    
     let session: URLSession = {
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
@@ -43,6 +45,7 @@ class DataStore {
                     let getTokeResult = self.processTokenRequest(data: data, error: error)
                     switch getTokeResult {
                     case let .success(token):
+                        self.accessToken = token.accessToken
                         UserDefaults.standard.set(token.accessToken, forKey: "accessToken")
                         UserDefaults.standard.set(APIKey, forKey: "APIKey")
                         UserDefaults.standard.set(secret, forKey: "secret")
@@ -88,34 +91,35 @@ class DataStore {
         }
         let task = session.dataTask(with: request) { (data, response, error) in
             if let data = data, let response = response as? HTTPURLResponse, error == nil {
-                //                if response.statusCode == 401 {
-                //                        if let APIKey = UserDefaults.standard.string(forKey: "APIKey"), let secret = UserDefaults.standard.string(forKey: "secret") {
-                //                            self.tokenRequest(APIKey: APIKey, secret: secret, taskCompletion: { (tokenRequestResult) in
-                //                                switch tokenRequestResult {
-                //                                case "ok":
-                //                                    print("Successfully gets access token")
-                //                                    print(self.accessToken!)
-                //                                    self.getAnimals(filter: filter, Completion: {_ in ()})
-                //                                default:
-                //                                    print("Cannot get access token")
-                //                                }
-                //                            }, errorCompletion: {_ in ()})
-                //                        }
-                //                } else {
-                //                    let getAnimalsResult = self.processGetAnimalsRequest(data: data, error: error)
-                //                    OperationQueue.main.addOperation {
-                //                        Completion(getAnimalsResult)
-                //                    }
-                //                }
+                                if response.statusCode == 401 {
+                                        if let APIKey = UserDefaults.standard.string(forKey: "APIKey"), let secret = UserDefaults.standard.string(forKey: "secret") {
+                                            self.tokenRequest(APIKey: APIKey, secret: secret, taskCompletion: { (tokenRequestResult) in
+                                                switch tokenRequestResult {
+                                                case "ok":
+                                                    print("Successfully gets access token")
+                                                    UserDefaults.standard.removeObject(forKey: "accessToken")
+                                                    UserDefaults.standard.set(self.accessToken, forKey: "accessToken")
+                                                    self.getPets(Completion: {_ in ()})
+                                                default:
+                                                    print("Cannot get access token")
+                                                }
+                                            }, errorCompletion: {_ in ()})
+                                        }
+                                } else {
+                                    let getPetsResult = self.processGetPetsRequest(data: data, error: error)
+                                    OperationQueue.main.addOperation {
+                                        Completion(getPetsResult)
+                                    }
+                                }
                 
-//                if let jsonString = String(data: data, encoding: .utf8) {
-//                    print(jsonString)
-//                }
-                
-                let getPetsResult = self.processGetPetsRequest(data: data, error: error)
-                OperationQueue.main.addOperation {
-                    Completion(getPetsResult)
+                if let jsonString = String(data: data, encoding: .utf8) {
+                    print(jsonString)
                 }
+                
+//                let getPetsResult = self.processGetPetsRequest(data: data, error: error)
+//                OperationQueue.main.addOperation {
+//                    Completion(getPetsResult)
+//                }
             }
         }
         task.resume()
@@ -132,7 +136,7 @@ class DataStore {
     
     //MARK:- Get pet photos request method
 
-    func getPetPhotos(for photos: [Photo], completion: @escaping (Result<[UIImage],Error>) -> Void ) {        
+//    func getPetPhotos(for photos: [Photo], completion: @escaping (Result<[UIImage],Error>) -> Void ) {
 //        guard !photos.isEmpty else {
 //            completion(.failure(PhotoError.missingPhotosURLs))
 //            print("Missing Photos URLs")
@@ -153,28 +157,54 @@ class DataStore {
 //            }
 //            task.resume()
 //        }
-        let urlString = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49026715/5/?bust=1599635888&width=100"
-        guard let photoURL = URL(string: urlString) else {
-            print("Cannot create url")
-            return
-        }
-        var request = URLRequest(url: photoURL)
-        request.httpMethod = "GET"
-        
-        let task = session.dataTask(with: request) { (data, response, error) in
-            print(error!)
-            print(response!)
-            let getPetPhotosResult = self.processGetPetsPhotosRequest(data: data, error: error)
-            OperationQueue.main.addOperation {
-                completion(getPetPhotosResult)
-            }
-        }
-        task.resume()
-    }
+//        let urlString = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49026715/5/?bust=1599635888&width=100"
+//        guard let photoURL = URL(string: urlString) else {
+//            print("Cannot create url")
+//            return
+//        }
+//        var request = URLRequest(url: photoURL)
+//        request.httpMethod = "GET"
+//
+//        let task = session.dataTask(with: request) { (data, response, error) in
+//            print(error!)
+//            print(response!)
+//            let getPetPhotosResult = self.processGetPetsPhotosRequest(data: data, error: error)
+//            OperationQueue.main.addOperation {
+//                completion(getPetPhotosResult)
+//            }
+//        }
+//        task.resume()
+//    }
     
-    func test(for photos: [Photo], petID: Int) -> Result<[UIImage],Error> {
+//    func getPetImages(for photos: [Photo], petID: Int) -> Result<[UIImage],Error> {
+//        var petPhotos = [UIImage]()
+//
+//        guard !photos.isEmpty else {
+//            print("Missing Photos URLs")
+//            return .failure(PhotoError.missingPhotosURLs)
+//        }
+//
+//        if let petPhoto = imageStore.fetchImage(forKey: String(petID)) {
+//            petPhotos.append(petPhoto)
+//            return .success(petPhotos)
+//        }
+//
+//        for photo in photos {
+//            let urlString = photo.small
+//            let photoURL = URL(string: urlString)!
+//            guard let photoData = NSData(contentsOf: photoURL) else {
+//                return .failure(PhotoError.imageCreationError)
+//            }
+//            let petPhoto = UIImage(data: photoData as Data)!
+//            imageStore.saveImage(petPhoto, forKey: String(petID))
+//            petPhotos.append(petPhoto)
+//        }
+//        return .success(petPhotos)
+//    }
+    
+    func getPetImages(for photos: [Photo], petID: Int, imageSize: String?) -> Result<[UIImage],Error> {
         var petPhotos = [UIImage]()
-        
+        var urlString: String
         guard !photos.isEmpty else {
             print("Missing Photos URLs")
             return .failure(PhotoError.missingPhotosURLs)
@@ -186,7 +216,19 @@ class DataStore {
         }
         
         for photo in photos {
-            let urlString = photo.small
+            switch imageSize {
+            case "small":
+                urlString = photo.small
+            case "medium":
+                urlString = photo.medium
+            case "large":
+                urlString = photo.large
+            case "full":
+                urlString = photo.full
+            default:
+                return .failure(PhotoError.downloadImageError)
+            }
+            
             let photoURL = URL(string: urlString)!
             guard let photoData = NSData(contentsOf: photoURL) else {
                 return .failure(PhotoError.imageCreationError)
