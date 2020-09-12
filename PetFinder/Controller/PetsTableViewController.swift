@@ -21,9 +21,12 @@ class PetsTableViewController: UITableViewController {
     private var isSearching: Bool = false
     private var pets = [Pet]()
     private var filteredPets = [Pet]()
+    private var imageSize: String!
     private var petImage: UIImage!
-    var petImages: [UIImage]!
+    private var petMediumImages = [UIImage]()
+    private var petSmallImages = [UIImage]()
     private let store = DataStore()
+    private let imageStore = ImageStore()
     private let userAlert = UserAlert()
 //    var delegate: PetsTableViewControllerDelegate!
     var petDetailsViewController: PetDetailsViewController!
@@ -97,35 +100,38 @@ class PetsTableViewController: UITableViewController {
 //        return petPhoto
 //    }
     
-    @objc private func getPetPhotos(at index: Int) -> [UIImage] {
-        
-        let imageSizes = ["small", "medium±", "large", "full"]
-        
-        //        print(pets[0].photos)
-        //        store.getPetPhotos(for: pets[index].photos) { (getPetPhotosResult) in
-        //            switch getPetPhotosResult {
-        //            case let .success(petPhotos):
-        //                petPhoto = petPhotos.first!
-        //            case let .failure(error):
-        //                print(error)
-        //                petPhoto = UIImage(named: "No Image")!
-        //            }
-        //        }
-        
-        for item in imageSizes {
-            let getPetPhotosResult = store.getPetImages(for: pets[index].photos, petID: pets[index].id, imageSize: item)
-            switch getPetPhotosResult {
-            case let .success(petPhotos):
-                petImages = petPhotos
-                print(petPhotos.count)
-            case let .failure(error):
-                print(error)
-                petImage = UIImage(named: "No Photo")!
-            }
+    @objc private func getPetPhoto(at index: Int, imageSize: String?) -> [UIImage] {
+            
+    //        let imageSizes = ["small", "medium±", "large", "full"]
+            
+            //        print(pets[0].photos)
+            //        store.getPetPhotos(for: pets[index].photos) { (getPetPhotosResult) in
+            //            switch getPetPhotosResult {
+            //            case let .success(petPhotos):
+            //                petPhoto = petPhotos.first!
+            //            case let .failure(error):
+            //                print(error)
+            //                petPhoto = UIImage(named: "No Image")!
+            //            }
+            //        }
+            
+            let getPetPhotosResult = store.getPetImages(for: pets[index].photos, petID: pets[index].id, imageSize: imageSize)
+                switch getPetPhotosResult {
+                case let .success(petPhotos):
+                    if imageSize == "small" {
+                        petSmallImages = petPhotos
+                        return petSmallImages
+                    } else {
+                        petMediumImages = petPhotos
+                        return petSmallImages
+                    }
+                case let .failure(error):
+                    print(error)
+                    petSmallImages.removeAll()
+                    petSmallImages.append(UIImage(named: "No Photo")!)
+                }
+            return petSmallImages
         }
-        
-        return petImages
-    }
     
     // MARK: Setup navigation bar
     
@@ -161,9 +167,13 @@ class PetsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         index = indexPath.row
-        petImages = getPetPhotos(at: indexPath.row)
         let item: Pet!
+        
+        imageSize = "small"
+        _ = getPetPhoto(at: indexPath.row, imageSize: imageSize)
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PetsTableViewCell
         
         if isSearching == false {
@@ -176,23 +186,27 @@ class PetsTableViewController: UITableViewController {
         cell.petGender.text = item.gender
         cell.petAge.text = item.age
         cell.petBreed.text = item.breeds.primary
-        cell.petImage.image = petImages[indexPath.row]
-        //        cell.petImage.image = petPhoto
+        cell.petImage.image = petSmallImages.first
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let index = tableView.indexPathForSelectedRow?.row {
             let pet = self.pets[index]
-            let petImage = getPetPhotos(at: index)
+            
+            imageSize = "medium"
+            _ = getPetPhoto(at: indexPath.row, imageSize: imageSize)
+            
+//            print(petMediumImages.count)
+//            print(petMediumImages!)
             
             let petDetailsNavigationController = UINavigationController(rootViewController: PetDetailsViewController())
             let petDetailsViewController = petDetailsNavigationController.topViewController as! PetDetailsViewController
             petDetailsViewController.pet = pet
-            petDetailsViewController.sentPetImages = petImages
+            petDetailsViewController.sentPetImages = petSmallImages
+            petDetailsViewController.sentPetMediumImages = petMediumImages
             
             self.present(petDetailsNavigationController, animated: true, completion: nil)
-            
         }
     }
     

@@ -16,6 +16,10 @@ enum StoreError: Error {
     case NoJSONData
 }
 
+enum ImageStoreError: Error {
+    case SavingPhotoError
+}
+
 enum ParseJSONError: Error {
     case BadJSONFormat
 }
@@ -23,5 +27,5 @@ enum ParseJSONError: Error {
 enum PhotoError: Error {
     case imageCreationError
     case missingPhotosURLs
-    case downloadImageError
+    case getImageError
 }

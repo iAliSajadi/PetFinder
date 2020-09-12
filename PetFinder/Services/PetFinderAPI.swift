@@ -21,6 +21,11 @@ struct PetFinderAPI {
         return URL(string: url)!
     }
     
+    static func getPetsById(Id: Int) -> URL{
+        url = requestBaseURL + "/animals/\(Id)"
+        return URL(string: url)!
+    }
+    
 //    static func filterPetsURL(filterPetType: String?, filterPetBreed: Bool, filterPet: [String:String]?) -> URL {
 //        let urlComponents = URLComponents(string: requestBaseURL)
 //            

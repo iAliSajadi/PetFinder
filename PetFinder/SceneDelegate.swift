@@ -25,17 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = UINavigationController(rootViewController: LoginViewController())
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        
-//        //MARK:- Check UserDefaults for auto login
-//
-//        if UserDefaults.standard.string(forKey: "accessToken") == nil {
-//            return
-//        } else if !CheckNetworkReachability.isConnectedToNetwork() {
-//            userAlert.showInfoAlert(title: "Network Reachability Error" , message: "Internet Connection not Available!", view: LoginViewController(), action: ({}))
-//        } else {
-//            navigationController.pushViewController(MainPageViewController(), animated: true)
-//        }
-        
+                
         //MARK:- Setup Navigation bar
 
         UINavigationBar.appearance().barTintColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00)

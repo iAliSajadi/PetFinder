@@ -12,6 +12,7 @@ class PetDetailsViewController: UIViewController {
     
     var pet: Pet!
     var sentPetImage: UIImage?
+    var sentPetMediumImages = [UIImage]()
     var sentPetImages = [UIImage]()
     let identifier = "collectionViewCell"
     
@@ -223,7 +224,7 @@ class PetDetailsViewController: UIViewController {
 //            petDescription.text = "N/A"
 //        }
         
-        if let sentPetImage = sentPetImage {
+        if let sentPetImage = sentPetMediumImages.first {
             petImage.image = sentPetImage
         }
     }
@@ -252,29 +253,30 @@ extension PetDetailsViewController: UICollectionViewDelegate, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if !sentPetImages.isEmpty {
-            return sentPetImages.count
+            return sentPetMediumImages.count
         } else {
-            return 6
+            return 1
         }
     
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PetDetailsCollectionViewCell
-        
-        if !sentPetImages.isEmpty {
-            cell.petImage.image = sentPetImages[indexPath.row]
-        } else {
-            cell.petImage.image = UIImage(named: "No Photo")
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PetDetailsCollectionViewCell
+            
+            if !sentPetImages.isEmpty {
+    //            cell.petImage.image = sentPetImages[indexPath.row]
+                cell.petImage.image = sentPetMediumImages[indexPath.row]
+            } else {
+                cell.petImage.image = UIImage(named: "No Photo")
+            }
+            
+            return cell
         }
-        
-        return cell
-    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: (collectionView.frame.width / 3) - 16, height: 184)
-        return CGSize(width: 100, height: 80)
-    }
+    //        return CGSize(width: (collectionView.frame.width / 3) - 16, height: 184)
+            return CGSize(width: 130, height: 180)
+        }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10)

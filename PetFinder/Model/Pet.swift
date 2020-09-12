@@ -58,7 +58,15 @@ struct Colors: Codable {
 }
 
 // MARK: - Photo
-struct Photo: Codable {
+//struct Photo: Codable {
+//    let small, medium, large, full: String
+//
+//    enum CodingKeys: String, CodingKey {
+//        case small, medium, large, full
+//    }
+//}
+
+class Photo: Codable {
     let small, medium, large, full: String
     
     enum CodingKeys: String, CodingKey {
