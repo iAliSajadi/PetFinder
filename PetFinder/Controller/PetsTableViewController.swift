@@ -150,10 +150,10 @@ class PetsTableViewController: UITableViewController {
         self.tableView = UITableView(frame: CGRect.zero, style: .grouped)
         tableView.register(UINib(nibName: "PetsTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
         
-//        refreshControl = UIRefreshControl()
-//        refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
-//        refreshControl!.tintColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00)
-//        refreshControl!.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        refreshControl = UIRefreshControl()
+        refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl!.tintColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00)
+        refreshControl!.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
     // MARK: Table view data source
@@ -232,12 +232,12 @@ class PetsTableViewController: UITableViewController {
         return 50
     }
     
-//    @objc func refresh(refreshControl: UIRefreshControl){
-//        self.pets.removeAll()
-//        getPets()
-//        tableView.reloadData()
-//        refreshControl.endRefreshing()
-//    }
+    @objc func refresh(refreshControl: UIRefreshControl){
+        self.pets.removeAll()
+        getPets()
+        tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
     
     @objc func filterPets() {
         userAlert.showTypeOfFilter(title: "Filter Pets", message: "Filter pets by:", view: self) { (actionTitle) in
@@ -250,45 +250,63 @@ class PetsTableViewController: UITableViewController {
 }
 
 extension PetsTableViewController: UISearchBarDelegate, UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text {
-            if searchText.isEmpty {
-                isSearching = false
-            } else {
-                isSearching = true
-                
-                filteredPets = pets.filter({ (pet) -> Bool in
-                    if let filter = self.filter {
-                        print(filter)
-                        switch filter {
-                        case "Name":
-                            return pet.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-                        case "Type":
-                            return pet.type.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-                        case "Breed":
-                            return pet.breeds.primary.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-                        case "Gender":
-                            return pet.gender.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-                        case "Size":
-                            return pet.size.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-                        case "Color":
-                            return pet.size.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-                        default:
-                            isSearching = false
-                        }
-                        return true
-                    } else {
-                    return false
-                    }
-                })
-            }
-        }
-        tableView.reloadData()
+    
+    private func setupSearchBar() {
+        searchController.searchBar.scopeButtonTitles = ["Name", "Type", "Breed", "Size", "Gender", "Color"]
+        searchController.searchBar.selectedScopeButtonIndex = 0
     }
+
+    func updateSearchResults(for searchController: UISearchController) {
+        if searchController.searchBar.text!.isEmpty {
+            isSearching = false
+        }
+//        filterPetsTableView(for: searchController.searchBar.selectedScopeButtonIndex, searchText: searchController.searchBar.text!)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+//        filterPetsTableView(for: selectedScope, searchText: searchBar.text!)
+    }
+    
+//    func filterPetsTableView(for scopeButtonIndex: Int, searchText: String) {
+//            if searchText.isEmpty {
+//                isSearching = false
+//            }
+//
+//            print(searchText)
+//            switch scopeButtonIndex {
+//            case ScopeButtonIndex.Name.rawValue:
+//                isSearching = true
+//                filteredPets = pets.filter({ (pet) -> Bool in
+//                    return pet.name.lowercased().contains(searchText.lowercased())})
+//            case ScopeButtonIndex.petType.rawValue:
+//                isSearching = true
+//                print(scopeButtonIndex)
+//                filteredPets = pets.filter({ (pet) -> Bool in
+//                    return pet.type.lowercased().contains(searchText.lowercased())})
+//            case ScopeButtonIndex.Breed.rawValue:
+//                isSearching = true
+//                filteredPets = pets.filter({ (pet) -> Bool in
+//                    return pet.breeds.primary.lowercased().contains(searchText.lowercased())})
+//            case ScopeButtonIndex.Size.rawValue:
+//                isSearching = true
+//                filteredPets = pets.filter({ (pet) -> Bool in
+//                    return pet.size.lowercased().contains(searchText.lowercased())})
+//            case ScopeButtonIndex.Gender.rawValue:
+//                isSearching = true
+//                filteredPets = pets.filter({ (pet) -> Bool in
+//                    return pet.gender.lowercased().contains(searchText.lowercased())})
+//            case ScopeButtonIndex.Color.rawValue:
+//                isSearching = true
+//                filteredPets = pets.filter({ (pet) -> Bool in
+//                    return (pet.colors.primary?.lowercased().contains(searchText.lowercased()))!})
+//            default:
+//                isSearching = false
+//        }
+//    }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
-        isSearching = true
+        isSearching = false
         filter = searchBar.text
     }
     
@@ -297,7 +315,6 @@ extension PetsTableViewController: UISearchBarDelegate, UISearchResultsUpdating 
         searchBar.text = ""
         searchBar.resignFirstResponder()
         isSearching = false
-        
     }
 }
 
