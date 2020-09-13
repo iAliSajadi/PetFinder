@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -63,7 +63,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2H9-1F-qsX">
-                    <rect key="frame" x="0.0" y="44" width="375" height="1272"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1329"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9e-Ze-HY8">
                             <rect key="frame" x="8" y="0.0" width="359" height="1340"/>
@@ -76,8 +76,8 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iG-lD-0Op">
-                                    <rect key="frame" x="124" y="61" width="227" height="18"/>
-                                    <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="18"/>
+                                    <rect key="frame" x="124" y="60" width="227" height="20"/>
+                                    <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="20"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -87,7 +87,7 @@
                                     <color key="textColor" red="0.3921568627" green="0.019607843140000001" blue="0.71372549019999998" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iKN-fM-Vc4">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iKN-fM-Vc4" userLabel="Primary Details View">
                                     <rect key="frame" x="8" y="160" width="343" height="157"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6s7-Pd-DvF">
@@ -220,7 +220,7 @@
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                 </collectionView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEX-n2-Ix4">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEX-n2-Ix4" userLabel="Species &amp; Breeds View">
                                     <rect key="frame" x="8" y="597" width="343" height="131"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Breeds:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xp8-dy-uCb">
@@ -317,7 +317,7 @@
                                         <constraint firstItem="li1-sv-MwQ" firstAttribute="leading" secondItem="PKS-sX-Uwh" secondAttribute="leading" id="xeq-LX-jNV"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzi-EN-ysj">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzi-EN-ysj" userLabel="Attributes &amp; Environment View">
                                     <rect key="frame" x="8" y="768" width="343" height="235"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Attributes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUL-Nf-VyO">
@@ -509,7 +509,7 @@
                                     <color key="textColor" red="0.3921568627" green="0.019607843140000001" blue="0.71372549019999998" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PaU-3M-azW">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PaU-3M-azW" userLabel="Contact Info View">
                                     <rect key="frame" x="8" y="1043" width="343" height="78"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Organization Id:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbR-Ck-9EK">
@@ -558,7 +558,7 @@
                                         <constraint firstAttribute="height" constant="78" id="z3j-Cf-H1t"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FYk-Vh-zal">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FYk-Vh-zal" userLabel="Description View">
                                     <rect key="frame" x="8" y="1161" width="343" height="99"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="descriptionLbl" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqS-sN-x99">
@@ -638,7 +638,9 @@
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="f9e-Ze-HY8" secondAttribute="trailing" constant="8" id="3yA-Fo-467"/>
+                        <constraint firstAttribute="trailing" secondItem="f9e-Ze-HY8" secondAttribute="trailing" constant="8" id="3yA-Fo-467">
+                            <variation key="heightClass=compact" constant="0.0"/>
+                        </constraint>
                         <constraint firstItem="f9e-Ze-HY8" firstAttribute="height" secondItem="2H9-1F-qsX" secondAttribute="height" multiplier="1.05346" priority="250" id="7f5-a0-Odh"/>
                         <constraint firstAttribute="bottom" secondItem="f9e-Ze-HY8" secondAttribute="bottom" constant="-68" id="FnR-R2-TZb"/>
                         <constraint firstItem="f9e-Ze-HY8" firstAttribute="leading" secondItem="2H9-1F-qsX" secondAttribute="leading" constant="8" id="nWU-98-JgE"/>
@@ -649,8 +651,12 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2H9-1F-qsX" secondAttribute="trailing" id="32e-IA-ndI"/>
-                <constraint firstItem="2H9-1F-qsX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ge2-FT-RVC"/>
+                <constraint firstAttribute="trailing" secondItem="2H9-1F-qsX" secondAttribute="trailing" id="32e-IA-ndI">
+                    <variation key="heightClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstItem="2H9-1F-qsX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ge2-FT-RVC">
+                    <variation key="heightClass=compact" constant="0.0"/>
+                </constraint>
                 <constraint firstItem="2H9-1F-qsX" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="pcL-he-nr1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="2H9-1F-qsX" secondAttribute="top" id="r8w-L0-Mtj"/>
             </constraints>

@@ -26,8 +26,6 @@
 		205F4E3B25091C4A005008F1 /* PetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F4E3925091C4A005008F1 /* PetDetailsViewController.swift */; };
 		205F4E3C25091C4A005008F1 /* PetDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 205F4E3A25091C4A005008F1 /* PetDetailsViewController.xib */; };
 		20B57596250BDEBF00D8718F /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B57595250BDEBF00D8718F /* ImageStore.swift */; };
-		20B73177250A086F00119193 /* PetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B73176250A086F00119193 /* PetType.swift */; };
-		20B73179250A089700119193 /* PetBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B73178250A089700119193 /* PetBreed.swift */; };
 		20D6D584250DD229001EE79B /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D6D583250DD229001EE79B /* FavoritesTableViewController.swift */; };
 		20D6D587250DEE35001EE79B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D6D585250DEE35001EE79B /* SettingsViewController.swift */; };
 		20D6D588250DEE35001EE79B /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D6D586250DEE35001EE79B /* SettingsViewController.xib */; };
@@ -61,8 +59,6 @@
 		205F4E3925091C4A005008F1 /* PetDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailsViewController.swift; sourceTree = "<group>"; };
 		205F4E3A25091C4A005008F1 /* PetDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetDetailsViewController.xib; sourceTree = "<group>"; };
 		20B57595250BDEBF00D8718F /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
-		20B73176250A086F00119193 /* PetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetType.swift; sourceTree = "<group>"; };
-		20B73178250A089700119193 /* PetBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetBreed.swift; sourceTree = "<group>"; };
 		20D6D583250DD229001EE79B /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		20D6D585250DEE35001EE79B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		20D6D586250DEE35001EE79B /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -124,8 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				205D84342505DF0B0010876B /* Pet.swift */,
-				20B73178250A089700119193 /* PetBreed.swift */,
-				20B73176250A086F00119193 /* PetType.swift */,
 				2005213C2505FCCB0054B3AD /* Token.swift */,
 				2047807F250650CE00319B06 /* ResponseError.swift */,
 			);
@@ -285,7 +279,6 @@
 				20B57596250BDEBF00D8718F /* ImageStore.swift in Sources */,
 				20279BEC250BBC520019AF48 /* CheckNetworkReachability.swift in Sources */,
 				205D84352505DF0B0010876B /* Pet.swift in Sources */,
-				20B73179250A089700119193 /* PetBreed.swift in Sources */,
 				205F4E3B25091C4A005008F1 /* PetDetailsViewController.swift in Sources */,
 				205D84192505D9580010876B /* AppDelegate.swift in Sources */,
 				200521372505EA3C0054B3AD /* PetFinderAPI.swift in Sources */,
@@ -293,7 +286,6 @@
 				20279BEA250BA2240019AF48 /* PetsDetailsCollectionViewCell.swift in Sources */,
 				20D6D584250DD229001EE79B /* FavoritesTableViewController.swift in Sources */,
 				20D6D587250DEE35001EE79B /* SettingsViewController.swift in Sources */,
-				20B73177250A086F00119193 /* PetType.swift in Sources */,
 				20478080250650CE00319B06 /* ResponseError.swift in Sources */,
 				20F5EF51250819F700210E28 /* MainPageViewController.swift in Sources */,
 				205D841B2505D9580010876B /* SceneDelegate.swift in Sources */,

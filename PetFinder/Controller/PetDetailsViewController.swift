@@ -111,7 +111,7 @@ class PetDetailsViewController: UIViewController {
             case let .failure(error):
                 print(error)
         }
-        userAlert.showInfoAlert(title: "Favorite Pet", message: "Saved to favorites successfully", view: self, action: {()})
+        userAlert.showInfoAlert(title: "\(pet.name)", message: "Is your favorite now", view: self, action: {()})
     }
     
     private func configLabels() {

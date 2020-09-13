@@ -8,8 +8,15 @@
 
 import UIKit
 
+protocol PetsTableViewCellDelegate {
+    func onClickFavoriteButtonFor(indexPath: Int)
+}
+
 class PetsTableViewCell: UITableViewCell {
 
+    var delegate: PetsTableViewCellDelegate!
+    var indexPath: IndexPath!
+    
     @IBOutlet var petName: UILabel!
     @IBOutlet var petBreed: UILabel!
     @IBOutlet var petAge: UILabel!
@@ -41,4 +48,8 @@ class PetsTableViewCell: UITableViewCell {
 //    private func configureImageView() {
 //        
 //    }
+    
+    @IBAction func setFavorite(_ sender: UIButton) {
+        delegate.onClickFavoriteButtonFor(indexPath: indexPath.row)
+    }
 }

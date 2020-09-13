@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController {
       
         self.navigationItem.title = "Settings"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action:  #selector(logout))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action:  #selector(logout))
     }
 
     //MARK: - Logout Button

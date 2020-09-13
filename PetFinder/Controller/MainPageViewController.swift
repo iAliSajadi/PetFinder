@@ -34,7 +34,7 @@ class MainPageViewController: UITabBarController {
                                ]
         
         let item1 = UITabBarItem(title: "Pets", image: UIImage(named: "Pets"), tag: 1)
-        let item2 = UITabBarItem(title:"Favorites",image:UIImage(named:"Favorite Pets"), tag:2)
+        let item2 = UITabBarItem(title:"Favorite Pets",image:UIImage(named:"Favorite Pets"), tag:2)
         let item3 = UITabBarItem(title: "Settings", image: UIImage(named: "Setting"), tag: 3)
         
         petsTabNavigationController.tabBarItem = item1

@@ -36,14 +36,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="khL-pB-UYo">
                                 <rect key="frame" x="110" y="8" width="252" height="84"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9W-zi-ng3">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="F9W-zi-ng3">
                                         <rect key="frame" x="0.0" y="0.0" width="252" height="39"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NG6-Xi-Zrq">
-                                                <rect key="frame" x="0.0" y="0.0" width="252" height="39"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="39"/>
                                                 <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="18"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2q-vH-NiQ">
+                                                <rect key="frame" x="153.5" y="0.0" width="98.5" height="39"/>
+                                                <state key="normal" image="Favotite 2"/>
+                                                <connections>
+                                                    <action selector="setFavorite:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PxL-sE-o0r"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hA4-Jq-xWk">
@@ -71,6 +78,9 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="L4s-Pf-Enx" firstAttribute="centerY" secondItem="GGn-ZY-f0F" secondAttribute="centerY" id="BPc-O9-eBy"/>
+                                                </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="O7L-5p-K34">
                                                 <rect key="frame" x="70" y="0.0" width="182" height="45"/>
@@ -135,4 +145,7 @@
             <point key="canvasLocation" x="31.884057971014496" y="21.428571428571427"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Favotite 2" width="27" height="21"/>
+    </resources>
 </document>
