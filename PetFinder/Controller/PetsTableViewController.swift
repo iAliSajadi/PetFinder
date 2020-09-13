@@ -275,7 +275,6 @@ extension PetsTableViewController: UISearchBarDelegate, UISearchResultsUpdating 
                 return pet.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil })
         case ScopeButtonIndex.Typpe.rawValue:
             isSearching = true
-            print("type")
             filteredPets = pets.filter({ (pet) -> Bool in
                 return pet.type.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil })
         case ScopeButtonIndex.Breed.rawValue:

@@ -109,6 +109,7 @@ class DataStore {
                                                     switch tokenRequestResult {
                                                     case "ok":
                                                         print("Successfully gets access token")
+                                                        print("There is a little bug. please run app again...THANKS")
                                                         UserDefaults.standard.removeObject(forKey: "accessToken")
                                                         UserDefaults.standard.set(self.accessToken, forKey: "accessToken")
                                                         OperationQueue.main.addOperation {
@@ -148,7 +149,6 @@ class DataStore {
         var identifier = 0
         
         guard !photos.isEmpty else {
-            print("Missing Photos URLs")
             return .failure(PhotoError.missingPhotosURLs)
         }
         
@@ -216,7 +216,6 @@ class DataStore {
     func savePet(pet: Pet) -> Result<String,Error> {
         var pets = [Pet]()
         if case let .success(getPets) = fetchPet() {
-            print(getPets.count)
             for item in getPets {
                 pets.append(item)
             }
@@ -237,7 +236,6 @@ class DataStore {
         do {
             let data = try Data(contentsOf: petArchiveURL)
             let pets = try decoder.decode([Pet].self, from: data)
-            print(pets.count)
             return .success(pets)
         } catch {
             print("Error reading in saved items: \(error)")

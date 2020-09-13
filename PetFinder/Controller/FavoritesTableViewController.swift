@@ -42,7 +42,7 @@ class FavoritesTableViewController: UITableViewController {
         setupNavigationBar()
         setupTableView()
         setupSearchBar()
-        activityIndicator()
+//        activityIndicator()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -147,10 +147,19 @@ class FavoritesTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if isSearching == false{
+        if isSearching == false {
+            if pets.count == 0 {
+                tableView.setEmptyView()
+            } else {
+                tableView.restore()
+            }
             return pets.count
         } else {
+            if filteredPets.count == 0 {
+                tableView.setEmptyView()
+            } else {
+                tableView.restore()
+            }
             return filteredPets.count
         }
     }
@@ -287,7 +296,6 @@ extension FavoritesTableViewController: UISearchBarDelegate, UISearchResultsUpda
                 return pet.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil })
         case ScopeButtonIndex.Typpe.rawValue:
             isSearching = true
-            print("type")
             filteredPets = pets.filter({ (pet) -> Bool in
                 return pet.type.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil })
         case ScopeButtonIndex.Breed.rawValue:
