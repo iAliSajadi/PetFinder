@@ -29,3 +29,8 @@ enum PhotoError: Error {
     case missingPhotosURLs
     case getImageError
 }
+
+enum ArchivingError: Error {
+    case encodingError
+    case fetchingError
+}

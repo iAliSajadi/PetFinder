@@ -13,10 +13,18 @@ class DataStore {
     let imageStore = ImageStore()
     var accessToken: String!
     var url: URL!
+    let encoder = PropertyListEncoder()
+    let decoder = PropertyListDecoder()
     
     let session: URLSession = {
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
+    }()
+    
+    let petArchiveURL: URL = {
+        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            let documentDirectory = documentsDirectories.first!
+            return documentDirectory.appendingPathComponent("pet.plist")
     }()
     
     //MARK:- Token request method
@@ -198,7 +206,7 @@ class DataStore {
                 return nil
             }
             let petPhoto = UIImage(data: photoData as Data)!
-            imageStore.saveImage(petPhoto, forKey: String(petID))
+            imageStore.saveImage(petPhoto, forKey: key)
             return petPhoto
         }
         
@@ -209,11 +217,11 @@ class DataStore {
             switch imageSize {
             case "small":
                 urlString = photo.small
-                petPhoto = getPetPhoto(url: urlString, key: key)!
+                petPhoto = getPetPhoto(url: urlString, key: key + "S")!
                 petPhotos.append(petPhoto)
             case "medium":
                 urlString = photo.medium
-                petPhoto = getPetPhoto(url: urlString, key: key)!
+                petPhoto = getPetPhoto(url: urlString, key: key + "M")!
                 petPhotos.append(petPhoto)
             default:
                 return .failure(PhotoError.getImageError)
@@ -246,5 +254,50 @@ class DataStore {
             return .failure(StoreError.NoJSONData)
         }
         return PetFinderAPI.parseResponseError(JSONError: JSONError)
+    }
+    
+    func savePet(pet: Pet) -> Result<String,Error> {
+        var pets = [Pet]()
+        if case let .success(getPets) = fetchPet() {
+            print(getPets.count)
+            for item in getPets {
+                pets.append(item)
+            }
+        }
+        pets.append(pet)
+        do {
+            let data = try encoder.encode(pets)
+            try data.write(to: petArchiveURL, options: [.atomic])
+            return .success("Save was successful")
+        } catch {
+            return .failure(ArchivingError.encodingError)
+        }
+    }
+    
+    func fetchPet() -> Result<[Pet],Error> {
+        do {
+            let data = try Data(contentsOf: petArchiveURL)
+            let pets = try decoder.decode([Pet].self, from: data)
+            print(pets.count)
+            return .success(pets)
+        } catch {
+            print("Error reading in saved items: \(error)")
+            return .failure(ArchivingError.fetchingError)
+        }
+    }
+    
+    func deletePet(at index: Int) {
+        var pets = [Pet]()
+            if case let .success(getPets) = fetchPet() {
+                pets = getPets
+            }
+        pets.remove(at: index)
+        do {
+            let data = try encoder.encode(pets)
+            try data.write(to: petArchiveURL, options: [.atomic])
+        } catch {
+            print(error)
+        }
+        print("Pet Deleted Successfully")
     }
 }

@@ -43,7 +43,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if UserDefaults.standard.string(forKey: "accessToken") == nil {
             return
         } else if !CheckNetworkReachability.isConnectedToNetwork() {
-            userAlert.showInfoAlert(title: "Network Reachability Error" , message: "Internet Connection not Available!", view: self, action: ({}))
+            userAlert.showInfoAlert(title: "Network Error" , message: "You are not connected to internet but can see your favorites offline", view: self, action: ({
+                self.navigationController!.pushViewController(MainPageViewController(), animated: true)
+            }))
         } else {
             navigationController!.pushViewController(MainPageViewController(), animated: true)
         }

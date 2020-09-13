@@ -12,7 +12,7 @@ class MainPageViewController: UITabBarController {
     
 //    var settingsTabNavigationController : UINavigationController!
     var petsTabNavigationController : UINavigationController!
-//    var archiveTabNavigationController : UINavigationController!
+    var favoritesTabNavigationController : UINavigationController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,18 +25,19 @@ class MainPageViewController: UITabBarController {
         
 //        settingsTabNavigationController = UINavigationController(rootViewController: SettingsViewController())
         petsTabNavigationController =  UINavigationController(rootViewController: PetsTableViewController())
-//        archiveTabNavigationController = UINavigationController(rootViewController: ArchiveViewController())
+        favoritesTabNavigationController = UINavigationController(rootViewController: FavoritesTableViewController())
         
         self.viewControllers = [
-                                petsTabNavigationController
+                                petsTabNavigationController,
+                                favoritesTabNavigationController
                                ]
         
         let item1 = UITabBarItem(title: "Pets", image: UIImage(named: "Pets"), tag: 1)
-//        let item2 = UITabBarItem(title:"آرشیو",image:UIImage(named:"Archive"), tag:2)
+        let item2 = UITabBarItem(title:"Favorites",image:UIImage(named:"Favorite Pets"), tag:2)
 //        let item3 = UITabBarItem(title: "یادداشت ها", image: UIImage(named: "Note"), tag: 3)
         
         petsTabNavigationController.tabBarItem = item1
-//        archiveTabNavigationController.tabBarItem = item2
+        favoritesTabNavigationController.tabBarItem = item2
 //        notesTabNavigationController.tabBarItem = item3
         
 //        self.selectedIndex = 2

@@ -41,31 +41,31 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NG6-Xi-Zrq">
                                                 <rect key="frame" x="0.0" y="0.0" width="252" height="39"/>
-                                                <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="18"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-120" translatesAutoresizingMaskIntoConstraints="NO" id="hA4-Jq-xWk">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hA4-Jq-xWk">
                                         <rect key="frame" x="0.0" y="39" width="252" height="45"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GGn-ZY-f0F">
-                                                <rect key="frame" x="0.0" y="0.0" width="186" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="45"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Age:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKj-VE-FFK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="186" height="15"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="15"/>
                                                         <fontDescription key="fontDescription" name="NexaLight" family="Nexa Light" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4s-Pf-Enx">
-                                                        <rect key="frame" x="0.0" y="15" width="186" height="15"/>
+                                                        <rect key="frame" x="0.0" y="15" width="70" height="15"/>
                                                         <fontDescription key="fontDescription" name="NexaLight" family="Nexa Light" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0i-O1-ngY">
-                                                        <rect key="frame" x="0.0" y="30" width="186" height="15"/>
+                                                        <rect key="frame" x="0.0" y="30" width="70" height="15"/>
                                                         <fontDescription key="fontDescription" name="NexaLight" family="Nexa Light" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -73,22 +73,22 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="O7L-5p-K34">
-                                                <rect key="frame" x="66" y="0.0" width="186" height="45"/>
+                                                <rect key="frame" x="70" y="0.0" width="182" height="45"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xf6-oT-LRz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="186" height="15"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="182" height="15"/>
                                                         <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwj-NZ-WB5">
-                                                        <rect key="frame" x="0.0" y="15" width="186" height="15"/>
+                                                        <rect key="frame" x="0.0" y="15" width="182" height="15"/>
                                                         <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="We4-qz-0FI">
-                                                        <rect key="frame" x="0.0" y="30" width="186" height="15"/>
+                                                        <rect key="frame" x="0.0" y="30" width="182" height="15"/>
                                                         <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -96,6 +96,9 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="O7L-5p-K34" firstAttribute="leading" secondItem="hA4-Jq-xWk" secondAttribute="leading" constant="70" id="GFj-vw-dl3"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>

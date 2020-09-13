@@ -39,7 +39,6 @@ class PetDetailsViewController: UIViewController {
     @IBOutlet var dogsEnvironment: UILabel!
     @IBOutlet var catsEnvironment: UILabel!
     @IBOutlet var OrganizationId: UILabel!
-    @IBOutlet var email: UILabel!
     @IBOutlet var phone: UILabel!
     @IBOutlet var petDescription: UILabel!
     @IBOutlet var primaryDetailsLbl: UILabel!
@@ -67,25 +66,17 @@ class PetDetailsViewController: UIViewController {
     }
     
     private func configView() {
+        
         leftTopView.layer.cornerRadius = leftTopView.frame.height / 9
-        leftTopView.layer.borderColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00).cgColor
-        leftTopView.layer.borderWidth = 2
         
         leftBottomView.layer.cornerRadius = leftBottomView.frame.height / 9
-        leftBottomView.layer.borderColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00).cgColor
-        leftBottomView.layer.borderWidth = 2
         
         rightTopView.layer.cornerRadius = rightTopView.frame.height / 17
-        rightTopView.layer.borderColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00).cgColor
-        rightTopView.layer.borderWidth = 2
         
         rightBottomView.layer.cornerRadius = rightBottomView.frame.height / 9
-        rightBottomView.layer.borderColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00).cgColor
-        rightBottomView.layer.borderWidth = 2
         
         descriptionView.layer.cornerRadius = descriptionView.frame.height / 9
-        descriptionView.layer.borderColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00).cgColor
-        descriptionView.layer.borderWidth = 2
+
     }
     
     private func configImageView() {
@@ -214,7 +205,6 @@ class PetDetailsViewController: UIViewController {
         OrganizationId.text = pet.organizationId
         
         // Contact
-        email.text = pet.contact.email
         phone.text = pet.contact.phone
         
         // Description
