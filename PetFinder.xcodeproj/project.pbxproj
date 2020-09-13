@@ -29,6 +29,8 @@
 		20B73177250A086F00119193 /* PetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B73176250A086F00119193 /* PetType.swift */; };
 		20B73179250A089700119193 /* PetBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B73178250A089700119193 /* PetBreed.swift */; };
 		20D6D584250DD229001EE79B /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D6D583250DD229001EE79B /* FavoritesTableViewController.swift */; };
+		20D6D587250DEE35001EE79B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D6D585250DEE35001EE79B /* SettingsViewController.swift */; };
+		20D6D588250DEE35001EE79B /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D6D586250DEE35001EE79B /* SettingsViewController.xib */; };
 		20F5EF4A250819B300210E28 /* PetsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F5EF49250819B300210E28 /* PetsTableViewCell.xib */; };
 		20F5EF4D250819D600210E28 /* PetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F5EF4C250819D600210E28 /* PetsTableViewCell.swift */; };
 		20F5EF4F250819E700210E28 /* PetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F5EF4E250819E700210E28 /* PetsTableViewController.swift */; };
@@ -62,6 +64,8 @@
 		20B73176250A086F00119193 /* PetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetType.swift; sourceTree = "<group>"; };
 		20B73178250A089700119193 /* PetBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetBreed.swift; sourceTree = "<group>"; };
 		20D6D583250DD229001EE79B /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		20D6D585250DEE35001EE79B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		20D6D586250DEE35001EE79B /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		20F5EF49250819B300210E28 /* PetsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetsTableViewCell.xib; sourceTree = "<group>"; };
 		20F5EF4C250819D600210E28 /* PetsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetsTableViewCell.swift; sourceTree = "<group>"; };
 		20F5EF4E250819E700210E28 /* PetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetsTableViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				20F5EF482508199500210E28 /* Cells */,
 				205D84372505E02A0010876B /* LoginViewController.xib */,
 				205F4E3A25091C4A005008F1 /* PetDetailsViewController.xib */,
+				20D6D586250DEE35001EE79B /* SettingsViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 				20F5EF4E250819E700210E28 /* PetsTableViewController.swift */,
 				205F4E3925091C4A005008F1 /* PetDetailsViewController.swift */,
 				20D6D583250DD229001EE79B /* FavoritesTableViewController.swift */,
+				20D6D585250DEE35001EE79B /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -258,6 +264,7 @@
 				20F5EF562508242A00210E28 /* Nexa Light.ttf in Resources */,
 				205D84392505E02A0010876B /* LoginViewController.xib in Resources */,
 				205F4E3C25091C4A005008F1 /* PetDetailsViewController.xib in Resources */,
+				20D6D588250DEE35001EE79B /* SettingsViewController.xib in Resources */,
 				20F5EF4A250819B300210E28 /* PetsTableViewCell.xib in Resources */,
 				205D84282505D95A0010876B /* LaunchScreen.storyboard in Resources */,
 				20F5EF552508242800210E28 /* Nexa Bold.ttf in Resources */,
@@ -285,6 +292,7 @@
 				20F5EF4D250819D600210E28 /* PetsTableViewCell.swift in Sources */,
 				20279BEA250BA2240019AF48 /* PetsDetailsCollectionViewCell.swift in Sources */,
 				20D6D584250DD229001EE79B /* FavoritesTableViewController.swift in Sources */,
+				20D6D587250DEE35001EE79B /* SettingsViewController.swift in Sources */,
 				20B73177250A086F00119193 /* PetType.swift in Sources */,
 				20478080250650CE00319B06 /* ResponseError.swift in Sources */,
 				20F5EF51250819F700210E28 /* MainPageViewController.swift in Sources */,

@@ -37,11 +37,11 @@ struct UserAlert {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         // create alert action
-        let cancelAction = UIAlertAction(title: "خیر", style: .cancel) { _ in
+        let cancelAction = UIAlertAction(title: "No", style: .cancel) { _ in
             cancelAction!()
         }
         
-        let confirmAction = UIAlertAction(title: "بله", style: .destructive) { _ in
+        let confirmAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
             confirmAction!()
             //            UserDefaults.standard.removeObject(forKey: "userInfo")
             //            let loginViewController = sourceViewController?.navigationController?.tabBarController?.navigationController?.viewControllers.first as? LoginViewController

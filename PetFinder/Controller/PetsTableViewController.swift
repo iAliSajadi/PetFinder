@@ -115,23 +115,23 @@ class PetsTableViewController: UITableViewController {
             //            }
             //        }
             
-            let getPetPhotosResult = store.getPetImages(for: pets[index].photos, petID: pets[index].id, imageSize: imageSize)
-                switch getPetPhotosResult {
-                case let .success(petPhotos):
-                    if imageSize == "small" {
-                        petSmallImages = petPhotos
-                        return petSmallImages
-                    } else {
-                        petMediumImages = petPhotos
-                        return petSmallImages
-                    }
-                case let .failure(error):
-                    print(error)
-                    petSmallImages.removeAll()
-                    petSmallImages.append(UIImage(named: "No Photo")!)
+        let getPetPhotosResult = store.getPetImages(for: pets[index].photos, petID: pets[index].id, imageSize: imageSize)
+            switch getPetPhotosResult {
+            case let .success(petPhotos):
+                if imageSize == "small" {
+                    petSmallImages = petPhotos
+                    return petSmallImages
+                } else {
+                    petMediumImages = petPhotos
+                    return petSmallImages
                 }
-            return petSmallImages
-        }
+            case let .failure(error):
+                print(error)
+                petSmallImages.removeAll()
+                petSmallImages.append(UIImage(named: "No Photo")!)
+            }
+        return petSmallImages 
+    }
     
     // MARK: Setup navigation bar
     
@@ -205,6 +205,7 @@ class PetsTableViewController: UITableViewController {
             petDetailsViewController.pet = pet
             petDetailsViewController.sentPetImages = petSmallImages
             petDetailsViewController.sentPetMediumImages = petMediumImages
+            petDetailsViewController.previousVC = true
             
             self.present(petDetailsNavigationController, animated: true, completion: nil)
         }

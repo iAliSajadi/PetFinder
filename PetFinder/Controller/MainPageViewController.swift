@@ -10,7 +10,7 @@ import UIKit
 
 class MainPageViewController: UITabBarController {
     
-//    var settingsTabNavigationController : UINavigationController!
+    var settingsTabNavigationController : UINavigationController!
     var petsTabNavigationController : UINavigationController!
     var favoritesTabNavigationController : UINavigationController!
     
@@ -23,22 +23,23 @@ class MainPageViewController: UITabBarController {
     
     private func setupTabBar() {
         
-//        settingsTabNavigationController = UINavigationController(rootViewController: SettingsViewController())
         petsTabNavigationController =  UINavigationController(rootViewController: PetsTableViewController())
         favoritesTabNavigationController = UINavigationController(rootViewController: FavoritesTableViewController())
+        settingsTabNavigationController = UINavigationController(rootViewController: SettingsViewController())
         
         self.viewControllers = [
                                 petsTabNavigationController,
-                                favoritesTabNavigationController
+                                favoritesTabNavigationController,
+                                settingsTabNavigationController
                                ]
         
         let item1 = UITabBarItem(title: "Pets", image: UIImage(named: "Pets"), tag: 1)
         let item2 = UITabBarItem(title:"Favorites",image:UIImage(named:"Favorite Pets"), tag:2)
-//        let item3 = UITabBarItem(title: "یادداشت ها", image: UIImage(named: "Note"), tag: 3)
+        let item3 = UITabBarItem(title: "Settings", image: UIImage(named: "Setting"), tag: 3)
         
         petsTabNavigationController.tabBarItem = item1
         favoritesTabNavigationController.tabBarItem = item2
-//        notesTabNavigationController.tabBarItem = item3
+        settingsTabNavigationController.tabBarItem = item3
         
 //        self.selectedIndex = 2
     }

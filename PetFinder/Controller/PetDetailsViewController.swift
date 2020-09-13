@@ -11,9 +11,12 @@ import UIKit
 class PetDetailsViewController: UIViewController {
     
     var pet: Pet!
+    var previousVC = false
+    let store = DataStore()
     var sentPetImage: UIImage?
     var sentPetMediumImages = [UIImage]()
     var sentPetImages = [UIImage]()
+    let userAlert = UserAlert()
     let identifier = "collectionViewCell"
     
     @IBOutlet var petImage: UIImageView!
@@ -63,6 +66,7 @@ class PetDetailsViewController: UIViewController {
         setPetDetails()
         configNavigationBar()
         setupCollectionView()
+        
     }
     
     private func configView() {
@@ -88,7 +92,10 @@ class PetDetailsViewController: UIViewController {
     private func configNavigationBar() {
         navigationItem.title = "Pet Details"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        if previousVC {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Favorite"), style: .plain, target: self, action: #selector(setFavorite))
+        }
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(closePetDetails))
     }
     
@@ -97,7 +104,14 @@ class PetDetailsViewController: UIViewController {
     }
     
     @objc private func setFavorite() {
-        
+        let saveResult = store.savePet(pet: pet)
+            switch saveResult {
+            case let .success(result):
+                print(result)
+            case let .failure(error):
+                print(error)
+        }
+        userAlert.showInfoAlert(title: "Favorite Pet", message: "Saved to favorites successfully", view: self, action: {()})
     }
     
     private func configLabels() {
@@ -115,15 +129,23 @@ class PetDetailsViewController: UIViewController {
         
         // Breed
         primaryBreed.text = pet.breeds.primary
+        
         if let secondaryPetBreed = pet.breeds.secondary {
             secondaryBreed.text = secondaryPetBreed
         } else {
-            secondaryBreed.text = "N/A"
+            secondaryBreed.text = "n/a"
         }
+        
         if pet.breeds.mixed {
             mixedBreed.text = "Yes"
         } else {
             mixedBreed.text = "No"
+        }
+        
+        if pet.breeds.unknown {
+            unknownBreed.text = "Yes"
+        } else {
+            unknownBreed.text = "No"
         }
         
         // Age
@@ -139,19 +161,19 @@ class PetDetailsViewController: UIViewController {
         if let primaryPetColor = pet.colors.primary {
             primaryColor.text = primaryPetColor
         } else {
-            primaryColor.text = "N/A"
+            primaryColor.text = "n/a"
         }
         
         if let secondaryPetColor = pet.colors.secondary {
             secondaryColor.text = secondaryPetColor
         } else {
-            secondaryColor.text = "N/A"
+            secondaryColor.text = "n/a"
         }
         
         if let tertiaryPetColor = pet.colors.tertiary {
             tertiaryColor.text = tertiaryPetColor
         } else {
-            tertiaryColor.text = "N/A"
+            tertiaryColor.text = "n/a"
         }
         
         // Attributes
@@ -165,6 +187,12 @@ class PetDetailsViewController: UIViewController {
             houseTrainedAttribute.text = "Yes"
         } else {
             houseTrainedAttribute.text = "No"
+        }
+        
+        if pet.attributes.declawed != nil {
+            declawedAttribute.text = "Yes"
+        } else {
+            declawedAttribute.text = "No"
         }
         
         if pet.attributes.specialNeeds {
@@ -211,11 +239,13 @@ class PetDetailsViewController: UIViewController {
 //        if let description = pet.description {
 //        petDescription.text = description
 //        } else {
-//            petDescription.text = "N/A"
+//            petDescription.text = "n/a"
 //        }
         
         if let sentPetImage = sentPetMediumImages.first {
             petImage.image = sentPetImage
+        } else {
+            petImage.image = (UIImage(named: "No Photo")!)
         }
     }
     

@@ -66,13 +66,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if let APIKey = APIKey, !APIKey.isEmpty, let secret = secret, !secret.isEmpty {
             store.tokenRequest(APIKey: APIKey, secret: secret
-              , taskCompletion: { (loginResult) in
+              ,taskCompletion: { (loginResult) in
                 if loginResult == "ok" {
-                    print("Login successful")
+                    self.navigationController!.pushViewController(MainPageViewController(), animated: true)
                 } else {
                     self.userAlert.showInfoAlert(title: "Error", message: "There is a problem in login, Please try again", view: self, action: {()})
                 }
-            }, errorCompletion: { (loginErrorResult) in
+            },errorCompletion: { (loginErrorResult) in
                 if case let .success(loginError) = loginErrorResult {
                     if loginError.title == "invalid_client" {
                         self.userAlert.showInfoAlert(title: "Error", message: "Authentication failed, API Key or secret is incorrect", view: self, action: {()})
