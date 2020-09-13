@@ -49,7 +49,6 @@ class FavoritesTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         fetchPets()
-        checkNetworkReachability()
         searchController.searchBar.text = ""
         searchController.searchBar.showsCancelButton = false
         searchController.isActive = false
@@ -58,21 +57,6 @@ class FavoritesTableViewController: UITableViewController {
         spinner.backgroundColor = .white
         
         tableView.reloadData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        checkNetworkReachability()
-    }
-    
-    //MARK:- Check Network Reachability
-
-    private func checkNetworkReachability() {
-
-       if !CheckNetworkReachability.isConnectedToNetwork() {
-            userAlert.showInfoAlert(title: "Network Error" , message: "You are not connected to internet", view: self, action: ({}))
-        }
     }
     
     //MARK:- Prepare navigation bar

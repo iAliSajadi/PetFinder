@@ -71,23 +71,6 @@ class PetDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        checkNetworkReachability()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        checkNetworkReachability()
-    }
-    
-    //MARK:- Check Network Reachability
-
-    private func checkNetworkReachability() {
-
-       if !CheckNetworkReachability.isConnectedToNetwork() {
-            userAlert.showInfoAlert(title: "Network Error" , message: "You are not connected to internet", view: self, action: ({}))
-        }
     }
     
     //MARK:- Prepare views

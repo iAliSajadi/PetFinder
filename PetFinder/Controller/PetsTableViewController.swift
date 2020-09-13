@@ -52,27 +52,12 @@ class PetsTableViewController: UITableViewController {
         
         getPets()
         activityIndicator()
-        checkNetworkReachability()
         searchController.searchBar.text = ""
         searchController.searchBar.showsCancelButton = false
         searchController.isActive = false
         
         spinner.startAnimating()
         spinner.backgroundColor = .white
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        checkNetworkReachability()
-    }
-    
-    //MARK:- Check Network Reachability
-
-    private func checkNetworkReachability() {
-
-       if !CheckNetworkReachability.isConnectedToNetwork() {
-            userAlert.showInfoAlert(title: "Network Error" , message: "You are not connected to internet", view: self, action: ({}))
-        }
     }
     
     // MARK: - Get animals method
