@@ -21,6 +21,8 @@ class DataStore {
         return URLSession(configuration: config)
     }()
     
+    //MARK:- Document Directoriy URL
+    
     let petArchiveURL: URL = {
         let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
             let documentDirectory = documentsDirectories.first!
@@ -70,10 +72,6 @@ class DataStore {
                         }
                     }
                 }
-                
-                //                if let jsonString = String(data: data, encoding: .utf8) {
-                //                    print(jsonString)
-                //                }
             }
         }
         task.resume()
@@ -89,7 +87,7 @@ class DataStore {
         return PetFinderAPI.getToken(jsonData: jsonData)
     }
     
-    //MARK:- Get animals request method
+    //MARK:- Get animals request
 
     func getPets(Completion: @escaping (Result<[Pet],Error>) -> Void) {
            url = PetFinderAPI.getPetsURL()
@@ -113,7 +111,9 @@ class DataStore {
                                                         print("Successfully gets access token")
                                                         UserDefaults.standard.removeObject(forKey: "accessToken")
                                                         UserDefaults.standard.set(self.accessToken, forKey: "accessToken")
-                                                        self.getPets(Completion: {_ in ()})
+                                                        OperationQueue.main.addOperation {
+                                                            self.getPets(Completion: {_ in ()})
+                                                        }
                                                     default:
                                                         print("Cannot get access token")
                                                     }
@@ -125,10 +125,6 @@ class DataStore {
                                         Completion(getPetsResult)
                                     }
                                 }
-                
-//                if let jsonString = String(data: data, encoding: .utf8) {
-//                    print(jsonString)
-//                }
             }
         }
         task.resume()
@@ -143,47 +139,7 @@ class DataStore {
         return PetFinderAPI.getAnimals(JSONData: JSONData)
     }
     
-    //MARK:- Get pet photos request method
-
-//    func getPetPhotos(for photos: [Photo], completion: @escaping (Result<[UIImage],Error>) -> Void ) {
-//        guard !photos.isEmpty else {
-//            completion(.failure(PhotoError.missingPhotosURLs))
-//            print("Missing Photos URLs")
-//            return
-//        }
-//        for photo in photos {
-//            let urlString = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49026715/5/?bust=1599635888&width=100"
-//            print(urlString)
-//            let photoURL = URL(string: urlString)!
-//            print(photoURL)
-//            let request = URLRequest(url: photoURL)
-//
-//            let task = session.dataTask(with: request) { (data, response, error) in
-//                let getPetPhotosResult = self.processGetPetsPhotosRequest(data: data, error: error)
-//                OperationQueue.main.addOperation {
-//                    completion(getPetPhotosResult)
-//                }
-//            }
-//            task.resume()
-//        }
-//        let urlString = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49026715/5/?bust=1599635888&width=100"
-//        guard let photoURL = URL(string: urlString) else {
-//            print("Cannot create url")
-//            return
-//        }
-//        var request = URLRequest(url: photoURL)
-//        request.httpMethod = "GET"
-//
-//        let task = session.dataTask(with: request) { (data, response, error) in
-//            print(error!)
-//            print(response!)
-//            let getPetPhotosResult = self.processGetPetsPhotosRequest(data: data, error: error)
-//            OperationQueue.main.addOperation {
-//                completion(getPetPhotosResult)
-//            }
-//        }
-//        task.resume()
-//    }
+//MARK:- Get pet images
     
     func getPetImages(for photos: [Photo], petID: Int, imageSize: String?) -> Result<[UIImage],Error> {
         var petPhotos = [UIImage]()
@@ -231,12 +187,11 @@ class DataStore {
         return .success(petPhotos)
     }
     
-    //MARK:- Process the get pet photos request
+    //MARK:- Process get pet images request
 
     private func processGetPetsPhotosRequest(data: Data?, error: Error?) -> Result<[UIImage],Error> {
         var petPhotos = [UIImage]()
         guard let photoData = data, let photo = UIImage(data: photoData) else {
-            // Couldn't create an image
             if data == nil {
                 return .failure(error!)
             } else {
@@ -256,6 +211,8 @@ class DataStore {
         return PetFinderAPI.parseResponseError(JSONError: JSONError)
     }
     
+    //MARK:- Save pet to disk
+    
     func savePet(pet: Pet) -> Result<String,Error> {
         var pets = [Pet]()
         if case let .success(getPets) = fetchPet() {
@@ -274,6 +231,8 @@ class DataStore {
         }
     }
     
+     //MARK:- Fetch pet from disk
+    
     func fetchPet() -> Result<[Pet],Error> {
         do {
             let data = try Data(contentsOf: petArchiveURL)
@@ -286,6 +245,8 @@ class DataStore {
         }
     }
     
+    //MARK:- Delete pet from disk
+
     func deletePet(at index: Int) {
         var pets = [Pet]()
             if case let .success(getPets) = fetchPet() {

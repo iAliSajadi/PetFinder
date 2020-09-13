@@ -19,6 +19,7 @@ class MainPageViewController: UITabBarController {
         
         setupTabBar()
     }
+    
     //MARK: - Setup TabBar
     
     private func setupTabBar() {
@@ -39,9 +40,7 @@ class MainPageViewController: UITabBarController {
         
         petsTabNavigationController.tabBarItem = item1
         favoritesTabNavigationController.tabBarItem = item2
-        settingsTabNavigationController.tabBarItem = item3
-        
-//        self.selectedIndex = 2
+        settingsTabNavigationController.tabBarItem = item3        
     }
 }
 

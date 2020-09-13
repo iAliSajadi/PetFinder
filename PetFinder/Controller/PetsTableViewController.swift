@@ -50,9 +50,24 @@ class PetsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         getPets()
+        checkNetworkReachability()
         searchController.searchBar.text = ""
         searchController.searchBar.showsCancelButton = false
         searchController.isActive = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkNetworkReachability()
+    }
+    
+    //MARK:- Check Network Reachability
+
+    private func checkNetworkReachability() {
+
+       if !CheckNetworkReachability.isConnectedToNetwork() {
+            userAlert.showInfoAlert(title: "Network Error" , message: "You are not connected to internet", view: self, action: ({}))
+        }
     }
     
     // MARK: - Get animals method
@@ -69,7 +84,7 @@ class PetsTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - Get pet Photos
+    // MARK: - Get pet Photos with decodable
     
 //    @objc private func getPetPhotos(at index: Int) -> UIImage {
 //
@@ -97,6 +112,8 @@ class PetsTableViewController: UITableViewController {
 //        return petPhoto
 //    }
     
+    //MARK:- Get pet Photos
+    
     @objc private func getPetPhoto(at index: Int, imageSize: String?) -> [UIImage] {
             
         let getPetPhotosResult = store.getPetImages(for: pets[index].photos, petID: pets[index].id, imageSize: imageSize)
@@ -117,7 +134,7 @@ class PetsTableViewController: UITableViewController {
         return petSmallImages 
     }
     
-    // MARK: Setup navigation bar
+    // MARK:- Setup navigation bar
     
     private func setupNavigationBar() {
         
@@ -127,19 +144,20 @@ class PetsTableViewController: UITableViewController {
 
     }
     
-    // MARK: Setup table view
+    // MARK:- Setup table view
     
     private func setupTableView() {
         self.tableView = UITableView(frame: CGRect.zero, style: .grouped)
         tableView.register(UINib(nibName: "PetsTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
         
+        //MARK: Prepare pull to refresh
         refreshControl = UIRefreshControl()
         refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl!.tintColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00)
         refreshControl!.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
-    // MARK: Table view data source
+    // MARK:- Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching == false {
@@ -196,16 +214,10 @@ class PetsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if !pets.isEmpty || !filteredPets.isEmpty {
-            return 100
-        } else {
-            return tableView.frame.height
-        }
+        return 100
     }
-    
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 50
-//    }
+        
+    // MARK:- Pull to refresh
     
     @objc func refresh(refreshControl: UIRefreshControl){
         self.pets.removeAll()
@@ -214,6 +226,8 @@ class PetsTableViewController: UITableViewController {
         refreshControl.endRefreshing()
     }
 }
+
+// MARK:- Search bar extension
 
 extension PetsTableViewController: UISearchBarDelegate, UISearchResultsUpdating {
     
@@ -293,6 +307,8 @@ extension PetsTableViewController: UISearchBarDelegate, UISearchResultsUpdating 
         tableView.reloadData()
     }
 }
+
+// MARK:- Extension For PetsTableViewCellDelegate
 
 extension PetsTableViewController: PetsTableViewCellDelegate {
     

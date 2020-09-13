@@ -9,22 +9,23 @@ import UIKit
 
 class ImageStore {
     
-    //MARK:- Cache Images
+    //MARK:- Cache and save images
 
     let cache = NSCache<NSString,UIImage>()
 
     func saveImage(_ image: UIImage, forKey key: String) {
         cache.setObject(image, forKey: key as NSString)
 
-        // Create full URL for image
         let url = imageURL(forKey: key)
 
         // Turn image into JPEG data
-        if let data = image.jpegData(compressionQuality: 0.5) {
+        if let data = image.jpegData(compressionQuality: 1.0) {
             // Write it to full URL
             try? data.write(to: url)
         }
     }
+
+    //MARK:- fetch images from cache or disk
 
     func fetchImage(forKey key: String) -> UIImage? {
 //        return cache.object(forKey: key as NSString)
@@ -40,6 +41,8 @@ class ImageStore {
         return imageFromDisk
     }
 
+    //MARK:- Delete images from cache and disk
+
     func deleteImage(forKey key: String) {
         cache.removeObject(forKey: key as NSString)
 
@@ -51,7 +54,7 @@ class ImageStore {
         }
     }
 
-    //MARK:- Create the URL for saving Images to the disk
+    //MARK:- Create URL
 
     func imageURL(forKey key: String) -> URL {
         let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

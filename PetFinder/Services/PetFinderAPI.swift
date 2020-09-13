@@ -25,44 +25,8 @@ struct PetFinderAPI {
         url = requestBaseURL + "/animals/\(Id)"
         return URL(string: url)!
     }
-    
-//    static func filterPetsURL(filterPetType: String?, filterPetBreed: Bool, filterPet: [String:String]?) -> URL {
-//        let urlComponents = URLComponents(string: requestBaseURL)
-//            
-//        switch filterPetType {
-//        case let petType:
-//            url = requestBaseURL + "/types/\(String(describing: petType))"
-//            if filterPetBreed {
-//                url = requestBaseURL + "/types/\(String(describing: petType))/breeds"
-//                if let filterPet = filterPet {
-//                    for (key, value) in filterPet {
-//                        var queryParams = [URLQueryItem]()
-//                        let queryParam = URLQueryItem(name: key, value: value)
-//                        queryParams.append(queryParam)
-//                        return (urlComponents?.url)!
-//                    }
-//                }
-//            }
-//        }
-//        return URL(string: url)!
-//    }
-//        
-//        static func filterPetTypeURL(petType: String?) -> URL {
-//            url = requestBaseURL + "/types/\(String(describing: petType))"
-//            return URL(string: url)!
-//        }
-//    
-//    static func filterPetBreedURL(petBreed: String?) -> URL {
-//        url = requestBaseURL + "/types/\(String(describing: petBreed))"
-//        return URL(string: url)!
-//    }
-//    
-//    static func filterPet(filterPetType: Bool, filterPetBreed: Bool, filterPet: [String:String]?) -> URL {
-//        if filterPetType {
-//            url = requestBaseURL + "/types/\(petType)"
-//        }
-//    }
 
+    //MARK:- Token parser
     static func getToken(jsonData data : Data) -> Result<Token, Error> {
         do {
             let token = try jsonDecoder.decode(Token.self, from: data)
@@ -72,14 +36,8 @@ struct PetFinderAPI {
         }
     }
     
-//    static func getAnimals(JSONData data: Data) -> Result<[Animal], Error> {
-//        do {
-//            let animals = try jsonDecoder.decode([Animal].self, from: data)
-//            return .success(animals)
-//        } catch {
-//            return .failure(error)
-//        }
-//    }
+    //MARK:- Animal parser
+
     static func getAnimals(JSONData data: Data) -> Result<[Pet], Error> {
         do {
             let petfinderResponse = try jsonDecoder.decode(PetfinderAPIResponse.self, from: data)
@@ -89,6 +47,8 @@ struct PetFinderAPI {
         }
     }
     
+    //MARK:- Error parser
+
     static func parseResponseError(JSONError data: Data) -> Result<ResponseError, Error> {
         do {
             let responseError = try jsonDecoder.decode(ResponseError.self, from: data)

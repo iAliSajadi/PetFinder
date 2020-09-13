@@ -34,6 +34,9 @@ class SettingsViewController: UIViewController {
         userAlert.showDecisionAlert(title: "Logging Out", message: "Are you sure you want to leave us?", view: self, cancelAction: {()}) {
             
             UserDefaults.standard.removeObject(forKey: "accessToken")
+            UserDefaults.standard.removeObject(forKey: "APIKey")
+            UserDefaults.standard.removeObject(forKey: "secret")
+            
             let loginViewController = self.navigationController?.tabBarController?.navigationController?.viewControllers.first as? LoginViewController
             loginViewController?.APIKeyTextField.text = ""
             loginViewController?.secretTextField.text = ""

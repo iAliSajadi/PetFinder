@@ -66,7 +66,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="1329"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9e-Ze-HY8">
-                            <rect key="frame" x="8" y="0.0" width="359" height="1340"/>
+                            <rect key="frame" x="8" y="-13" width="359" height="1293"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TX1-B4-zQ1">
                                     <rect key="frame" x="8" y="20" width="100" height="100"/>
@@ -601,7 +601,7 @@
                                 <constraint firstItem="h2q-eL-94D" firstAttribute="top" secondItem="zzi-EN-ysj" secondAttribute="bottom" constant="16" id="CDC-vL-0SN"/>
                                 <constraint firstItem="qgm-za-Lq4" firstAttribute="leading" secondItem="wBY-9l-IDz" secondAttribute="leading" id="COd-wI-T1U"/>
                                 <constraint firstItem="OEX-n2-Ix4" firstAttribute="leading" secondItem="f9e-Ze-HY8" secondAttribute="leading" constant="8" id="CVa-mz-dxz"/>
-                                <constraint firstAttribute="height" constant="1340" id="Cql-Ng-QYc"/>
+                                <constraint firstAttribute="height" constant="1293" id="Cql-Ng-QYc"/>
                                 <constraint firstItem="li1-sv-MwQ" firstAttribute="leading" secondItem="Vqk-Ng-Ocd" secondAttribute="leading" id="Cz3-hL-TiX"/>
                                 <constraint firstItem="t6e-br-Bdd" firstAttribute="leading" secondItem="PaU-3M-azW" secondAttribute="leading" id="DgC-qg-BAo"/>
                                 <constraint firstItem="rSQ-Bi-BPQ" firstAttribute="top" secondItem="OEX-n2-Ix4" secondAttribute="bottom" constant="16" id="F0E-xk-G2R"/>
@@ -641,11 +641,11 @@
                         <constraint firstAttribute="trailing" secondItem="f9e-Ze-HY8" secondAttribute="trailing" constant="8" id="3yA-Fo-467">
                             <variation key="heightClass=compact" constant="0.0"/>
                         </constraint>
-                        <constraint firstItem="f9e-Ze-HY8" firstAttribute="height" secondItem="2H9-1F-qsX" secondAttribute="height" multiplier="1.05346" priority="250" id="7f5-a0-Odh"/>
-                        <constraint firstAttribute="bottom" secondItem="f9e-Ze-HY8" secondAttribute="bottom" constant="-68" id="FnR-R2-TZb"/>
+                        <constraint firstItem="f9e-Ze-HY8" firstAttribute="height" secondItem="2H9-1F-qsX" secondAttribute="height" multiplier="1.05346" priority="250" constant="-47.001120000000128" id="7f5-a0-Odh"/>
+                        <constraint firstAttribute="bottom" secondItem="f9e-Ze-HY8" secondAttribute="bottom" constant="-8" id="FnR-R2-TZb"/>
                         <constraint firstItem="f9e-Ze-HY8" firstAttribute="leading" secondItem="2H9-1F-qsX" secondAttribute="leading" constant="8" id="nWU-98-JgE"/>
                         <constraint firstItem="f9e-Ze-HY8" firstAttribute="width" secondItem="2H9-1F-qsX" secondAttribute="width" multiplier="0.556444" constant="150.33333333333334" id="s0X-1T-NP6"/>
-                        <constraint firstItem="f9e-Ze-HY8" firstAttribute="top" secondItem="2H9-1F-qsX" secondAttribute="top" id="x8o-FB-4zz"/>
+                        <constraint firstItem="f9e-Ze-HY8" firstAttribute="top" secondItem="2H9-1F-qsX" secondAttribute="top" constant="-13" id="x8o-FB-4zz"/>
                     </constraints>
                 </scrollView>
             </subviews>

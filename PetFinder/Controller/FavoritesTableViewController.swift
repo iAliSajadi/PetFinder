@@ -20,6 +20,7 @@ class FavoritesTableViewController: UITableViewController {
     private var petMediumImages = [UIImage]()
     private var petSmallImages = [UIImage]()
     private var imageSize: String!
+    let userAlert = UserAlert()
     let identifier = "petsTableViewCell"
     
     lazy var searchController: UISearchController = {
@@ -45,6 +46,7 @@ class FavoritesTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         fetchPets()
+        checkNetworkReachability()
         searchController.searchBar.text = ""
         searchController.searchBar.showsCancelButton = false
         searchController.isActive = false
@@ -52,24 +54,46 @@ class FavoritesTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        checkNetworkReachability()
+    }
+    
+    //MARK:- Check Network Reachability
+
+    private func checkNetworkReachability() {
+
+       if !CheckNetworkReachability.isConnectedToNetwork() {
+            userAlert.showInfoAlert(title: "Network Error" , message: "You are not connected to internet", view: self, action: ({}))
+        }
+    }
+    
+    //MARK:- Prepare navigation bar
+    
     private func setupNavigationBar() {
-        //        self.navigationItem.searchController = searchController
+        self.navigationItem.searchController = searchController
         self.navigationItem.leftBarButtonItem = editButtonItem
         
         self.navigationItem.title = "Favorite Pets"
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    //MARK:- Prepare table view
+    
     private func setupTableView() {
         
         self.tableView = UITableView(frame: CGRect.zero, style: .grouped)
         tableView.register(UINib(nibName: "PetsTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
         
+        //MARK: Prepare Pull to refresh
         refreshControl = UIRefreshControl()
         refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl!.tintColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00)
         refreshControl!.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
+    
+    //MARK:- Get pet photos from API
     
     @objc private func getPetPhoto(at index: Int, imageSize: String?) -> [UIImage] {
         let getPetPhotosResult = store.getPetImages(for: pets[index].photos, petID: Int(pets[index].id), imageSize: imageSize)
@@ -89,6 +113,8 @@ class FavoritesTableViewController: UITableViewController {
         }
         return petSmallImages
     }
+    
+    //MARK:- Get pet photos from disk
     
     private func fetchPets() {
         let fetchResult = store.fetchPet()
@@ -196,6 +222,8 @@ class FavoritesTableViewController: UITableViewController {
         return 100
     }
     
+    //MARK:- Pull to refresh method
+    
     @objc func refresh(refreshControl: UIRefreshControl){
         self.pets.removeAll()
         fetchPets()
@@ -215,6 +243,8 @@ extension FavoritesTableViewController: UISearchBarDelegate, UISearchResultsUpda
         case Gender  = 5
     }
     
+    // MARK:- Search bar extension
+
     private func setupSearchBar() {
         searchController.searchBar.scopeButtonTitles = ["All", "Name", "Type", "Breed", "Size", "Gender"]
         searchController.searchBar.selectedScopeButtonIndex = 0

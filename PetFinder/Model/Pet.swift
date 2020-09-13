@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - JSON Root struct
+
 struct PetfinderAPIResponse: Codable {
     let animals: [Pet]
     
@@ -16,7 +18,8 @@ struct PetfinderAPIResponse: Codable {
     }
 }
 
-// MARK: - Attributes
+// MARK: - Attributes struct
+
 struct Attributes: Codable {
     let spayedNeutered, houseTrained: Bool
     let declawed: Bool?
@@ -31,7 +34,8 @@ struct Attributes: Codable {
     }
 }
 
-// MARK: - Breeds
+// MARK: - Breeds struct
+
 struct Breeds: Codable {
     let primary: String
     let secondary: String?
@@ -44,7 +48,8 @@ struct Breeds: Codable {
     }
 }
 
-// MARK: - Colors
+// MARK: - Colors struct
+
 struct Colors: Codable {
     let primary: String?
     let secondary: String?
@@ -57,22 +62,17 @@ struct Colors: Codable {
     }
 }
 
-// MARK: - Photo
-//struct Photo: Codable {
-//    let small, medium, large, full: String
-//
-//    enum CodingKeys: String, CodingKey {
-//        case small, medium, large, full
-//    }
-//}
+// MARK: - Photo struct
 
-class Photo: Codable {
+struct Photo: Codable {
     let small, medium, large, full: String
     
     enum CodingKeys: String, CodingKey {
         case small, medium, large, full
     }
 }
+
+// MARK: - Contact struct
 
 struct Contact: Codable {
     let email, phone: String?
@@ -82,11 +82,6 @@ struct Contact: Codable {
     }
 }
 
-//struct Environment: Codable {
-//    let children: NSNumber?
-//    let dogs: NSNumber?
-//    let cats: NSNumber?
-//}
 
 // MARK: - Animal
 
@@ -115,35 +110,8 @@ struct Pet: Codable {
         case organizationId = "organization_id"
         case photos
     }
-    
-//    enum AttributesCodingKeys: String, CodingKey {
-//        case spayedNeutered = "spayed_neutered"
-//        case houseTrained = "house_trained"
-//        case declawed
-//        case specialNeeds = "special_needs"
-//        case shotsCurrent = "shots_current"
-//    }
-//
-//    enum BreedsCodingKeys: String, CodingKey {
-//        case primary
-//        case secondary
-//        case mixed, unknown
-//    }
-//
-//    enum ColorsCodingKeys: String, CodingKey {
-//        case primary
-//        case secondary
-//        case tertiary
-//    }
-//
-//    enum PhotosCodingKeys: String, CodingKey {
-//        case small, medium, large, full
-//    }
-//
-//    enum ContactCodingKeys: String, CodingKey {
-//        case email, phone
-//    }
-    
+
+    //MARK: Decoder init method
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(Int.self, forKey: .id)

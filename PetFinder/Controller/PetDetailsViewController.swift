@@ -69,25 +69,47 @@ class PetDetailsViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        checkNetworkReachability()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        checkNetworkReachability()
+    }
+    
+    //MARK:- Check Network Reachability
+
+    private func checkNetworkReachability() {
+
+       if !CheckNetworkReachability.isConnectedToNetwork() {
+            userAlert.showInfoAlert(title: "Network Error" , message: "You are not connected to internet", view: self, action: ({}))
+        }
+    }
+    
+    //MARK:- Prepare views
+    
     private func configView() {
         
         leftTopView.layer.cornerRadius = leftTopView.frame.height / 9
-        
         leftBottomView.layer.cornerRadius = leftBottomView.frame.height / 9
-        
         rightTopView.layer.cornerRadius = rightTopView.frame.height / 17
-        
         rightBottomView.layer.cornerRadius = rightBottomView.frame.height / 9
-        
         descriptionView.layer.cornerRadius = descriptionView.frame.height / 9
-
     }
+    
+    //MARK:- Prepare image views
     
     private func configImageView() {
         petImage.layer.cornerRadius = petImage.frame.height / 7
         petImage.layer.borderColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00).cgColor
         petImage.layer.borderWidth = 2
     }
+    
+    //MARK:- Prepare navigation bar
     
     private func configNavigationBar() {
         navigationItem.title = "Pet Details"
@@ -96,10 +118,12 @@ class PetDetailsViewController: UIViewController {
         if previousVC {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Favorite"), style: .plain, target: self, action: #selector(setFavorite))
         }
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(closePetDetails))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(DismissPetDetailsView))
     }
     
-    @objc private func closePetDetails() {
+    //MARK:- Dismiss pet details view
+    
+    @objc private func DismissPetDetailsView() {
         dismiss(animated: true, completion: nil)
     }
     
@@ -114,11 +138,15 @@ class PetDetailsViewController: UIViewController {
         userAlert.showInfoAlert(title: "\(pet.name)", message: "Is your favorite now", view: self, action: {()})
     }
     
+    //MARK:- Prepare labels
+    
     private func configLabels() {
         descriptionLbl.layer.cornerRadius = descriptionLbl.frame.height / 7
         descriptionLbl.layer.borderColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00).cgColor
         descriptionLbl.layer.masksToBounds = true
     }
+    
+    //MARK:- set labels for displaying details
     
     private func setPetDetails() {
         // Name
@@ -210,7 +238,7 @@ class PetDetailsViewController: UIViewController {
         // Status
         status.text = pet.status
         
-//        // Environment
+        // Environment
 //        if pet.environment.children != nil {
 //            childrenEnvironment.text = "Yes"
 //        } else {
@@ -249,6 +277,8 @@ class PetDetailsViewController: UIViewController {
         }
     }
     
+    //MARK:- Prepare Collection View
+    
     private func setupCollectionView() {
         
         collectionView.dataSource = self
@@ -267,6 +297,8 @@ class PetDetailsViewController: UIViewController {
         collectionView.layer.borderWidth = 2
     }
 }
+
+//MARK:- Conforming to collection view Delegate & DataSource
 
 extension PetDetailsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
