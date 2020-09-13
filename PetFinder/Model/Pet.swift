@@ -82,6 +82,14 @@ struct Contact: Codable {
     }
 }
 
+// MARK:- Environment struct
+
+struct Environment: Codable {
+    let children: String?
+    let dogs: String?
+    let cats: String?
+}
+
 
 // MARK: - Animal
 
@@ -97,7 +105,7 @@ struct Pet: Codable {
     let size: String
     let colors: Colors
     let attributes: Attributes
-    //    let environment: Environment
+//    let environment: Environment
     let status: String
     let contact: Contact
     let organizationId: String

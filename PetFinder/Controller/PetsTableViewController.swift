@@ -24,6 +24,7 @@ class PetsTableViewController: UITableViewController {
     private let store = DataStore()
     private let imageStore = ImageStore()
     private let userAlert = UserAlert()
+    var spinner = UIActivityIndicatorView()
     
     lazy var searchController: UISearchController = {
         let controller = UISearchController()
@@ -50,10 +51,14 @@ class PetsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         getPets()
+        activityIndicator()
         checkNetworkReachability()
         searchController.searchBar.text = ""
         searchController.searchBar.showsCancelButton = false
         searchController.isActive = false
+        
+        spinner.startAnimating()
+        spinner.backgroundColor = .white
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,40 +82,14 @@ class PetsTableViewController: UITableViewController {
             switch getAnimalsResult {
             case let .success(pets):
                 self.pets = pets
+                self.spinner.stopAnimating()
+                self.spinner.hidesWhenStopped = true
                 self.tableView.reloadData()
             case let .failure(error):
                 print(error)
             }
         }
     }
-    
-    // MARK: - Get pet Photos with decodable
-    
-//    @objc private func getPetPhotos(at index: Int) -> UIImage {
-//
-//        let imageSizes = ["small", "medium±", "large", "full"]
-//
-//        var petPhoto: UIImage!
-//        //        print(pets[0].photos)
-//        //        store.getPetPhotos(for: pets[index].photos) { (getPetPhotosResult) in
-//        //            switch getPetPhotosResult {
-//        //            case let .success(petPhotos):
-//        //                petPhoto = petPhotos.first!
-//        //            case let .failure(error):
-//        //                print(error)
-//        //                petPhoto = UIImage(named: "No Image")!
-//        //            }
-//        //        }
-//        let getPetPhotosResult = store.getPetImages(for: pets[index].photos, petID: pets[index].id, imageSize: nil)
-//        switch getPetPhotosResult {
-//        case let .success(petPhotos):
-//            petPhoto = petPhotos.first!
-//        case let .failure(error):
-//            print(error)
-//            petPhoto = UIImage(named: "No Photo")!
-//        }
-//        return petPhoto
-//    }
     
     //MARK:- Get pet Photos
     
@@ -132,6 +111,12 @@ class PetsTableViewController: UITableViewController {
                 petSmallImages.append(UIImage(named: "No Photo")!)
             }
         return petSmallImages 
+    }
+    
+    func activityIndicator() {
+        spinner.style = UIActivityIndicatorView.Style.medium
+        spinner.center = self.view.center
+        self.view.addSubview(spinner)
     }
     
     // MARK:- Setup navigation bar
@@ -161,8 +146,18 @@ class PetsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching == false {
+            if pets.count == 0 {
+                tableView.setEmptyView()
+            } else {
+                tableView.restore()
+            }
             return pets.count
         } else {
+            if filteredPets.count == 0 {
+                tableView.setEmptyView()
+            } else {
+                tableView.restore()
+            }
             return filteredPets.count
         }
     }
@@ -271,11 +266,9 @@ extension PetsTableViewController: UISearchBarDelegate, UISearchResultsUpdating 
             filteredPets = pets
         }
         
-        print(searchText)
         switch scopeButtonIndex {
         case ScopeButtonIndex.All.rawValue:
             isSearching = false
-            print(scopeButtonIndex)
         case ScopeButtonIndex.Name.rawValue:
             isSearching = true
             filteredPets = pets.filter({ (pet) -> Bool in
@@ -285,22 +278,18 @@ extension PetsTableViewController: UISearchBarDelegate, UISearchResultsUpdating 
             print("type")
             filteredPets = pets.filter({ (pet) -> Bool in
                 return pet.type.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil })
-            print(scopeButtonIndex)
         case ScopeButtonIndex.Breed.rawValue:
             isSearching = true
             filteredPets = pets.filter({ (pet) -> Bool in
                 return pet.breeds.primary.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil })
-            print(scopeButtonIndex)
         case ScopeButtonIndex.Size.rawValue:
             isSearching = true
             filteredPets = pets.filter({ (pet) -> Bool in
                 return pet.size.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil })
-            print(scopeButtonIndex)
         case ScopeButtonIndex.Gender.rawValue:
             isSearching = true
             filteredPets = pets.filter({ (pet) -> Bool in
                 return pet.gender.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil })
-            print(scopeButtonIndex)
         default:
             print("")
         }
@@ -320,6 +309,8 @@ extension PetsTableViewController: PetsTableViewCellDelegate {
             case let .failure(error):
                 print(error)
         }
-        userAlert.showInfoAlert(title: "\(pets[indexPath].name)", message: "Is your favorite now", view: self, action: {()})
+        userAlert.showInfoAlert(title: "\(pets[indexPath].name)", message: "Now is your favorite now", view: self, action: {()})
     }
 }
+
+

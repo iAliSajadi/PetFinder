@@ -44,12 +44,12 @@ class PetDetailsViewController: UIViewController {
     @IBOutlet var OrganizationId: UILabel!
     @IBOutlet var phone: UILabel!
     @IBOutlet var petDescription: UILabel!
-    @IBOutlet var primaryDetailsLbl: UILabel!
+    @IBOutlet var primaryDetails: UILabel!
     @IBOutlet var photos: UILabel!
     @IBOutlet var speciesAndBreeds: UILabel!
     @IBOutlet var attributesAndEnvironment: UILabel!
     @IBOutlet var contactInfo: UILabel!
-    @IBOutlet var descriptionLbl: UILabel!
+    @IBOutlet var descriiption: UILabel!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var leftTopView: UIView!
     @IBOutlet var leftBottomView: UIView!
@@ -135,15 +135,15 @@ class PetDetailsViewController: UIViewController {
             case let .failure(error):
                 print(error)
         }
-        userAlert.showInfoAlert(title: "\(pet.name)", message: "Is your favorite now", view: self, action: {()})
+        userAlert.showInfoAlert(title: "\(pet.name)", message: "Now is your favorite now", view: self, action: {()})
     }
     
     //MARK:- Prepare labels
     
     private func configLabels() {
-        descriptionLbl.layer.cornerRadius = descriptionLbl.frame.height / 7
-        descriptionLbl.layer.borderColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00).cgColor
-        descriptionLbl.layer.masksToBounds = true
+        descriiption.layer.cornerRadius = descriiption.frame.height / 7
+        descriiption.layer.borderColor = UIColor(red: 0.39, green: 0.02, blue: 0.71, alpha: 1.00).cgColor
+        descriiption.layer.masksToBounds = true
     }
     
     //MARK:- set labels for displaying details

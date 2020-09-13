@@ -27,7 +27,7 @@
                 <outlet property="collectionView" destination="7iO-P1-uyK" id="pYh-ho-tse"/>
                 <outlet property="contactInfo" destination="h2q-eL-94D" id="wkG-os-VfF"/>
                 <outlet property="declawedAttribute" destination="OX8-2I-Yhb" id="IVs-x3-h1s"/>
-                <outlet property="descriptionLbl" destination="t6e-br-Bdd" id="vbv-8k-p13"/>
+                <outlet property="descriiption" destination="t6e-br-Bdd" id="vbv-8k-p13"/>
                 <outlet property="descriptionView" destination="FYk-Vh-zal" id="EDY-Uc-lr4"/>
                 <outlet property="dogsEnvironment" destination="vPm-ah-CFd" id="82z-Dn-Mhn"/>
                 <outlet property="gender" destination="Gos-I9-0XI" id="sSW-Sv-0p5"/>
@@ -42,7 +42,7 @@
                 <outlet property="photos" destination="hiN-np-HNP" id="7ck-6M-BlN"/>
                 <outlet property="primaryBreed" destination="x3Z-lB-o3T" id="85e-KK-r35"/>
                 <outlet property="primaryColor" destination="rOi-Qm-Udu" id="xvy-Y0-VVw"/>
-                <outlet property="primaryDetailsLbl" destination="jSu-Jl-kEM" id="ZFM-hO-Tsn"/>
+                <outlet property="primaryDetails" destination="jSu-Jl-kEM" id="ZFM-hO-Tsn"/>
                 <outlet property="rightBottomView" destination="PaU-3M-azW" id="7Ns-Wa-pDh"/>
                 <outlet property="rightTopView" destination="zzi-EN-ysj" id="ugM-Fy-F2h"/>
                 <outlet property="secondaryBreed" destination="Vzf-LW-ihB" id="PrC-vZ-heN"/>

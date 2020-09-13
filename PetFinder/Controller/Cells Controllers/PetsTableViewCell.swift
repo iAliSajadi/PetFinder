@@ -24,6 +24,7 @@ class PetsTableViewCell: UITableViewCell {
     @IBOutlet var petImage: UIImageView!
     @IBOutlet var cellView: UIView!
     @IBOutlet var cell: UIView!
+    @IBOutlet var favoriteButton: UIButton!
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -34,20 +35,6 @@ class PetsTableViewCell: UITableViewCell {
         petImage.layer.cornerRadius = 5.0
         petImage.layer.borderWidth = 2
     }
-    
-//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-//        super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        
-//        configureImageView()
-//    }
-//    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//    
-//    private func configureImageView() {
-//        
-//    }
     
     @IBAction func setFavorite(_ sender: UIButton) {
         delegate.onClickFavoriteButtonFor(indexPath: indexPath.row)

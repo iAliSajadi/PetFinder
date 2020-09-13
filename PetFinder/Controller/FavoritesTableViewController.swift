@@ -21,6 +21,7 @@ class FavoritesTableViewController: UITableViewController {
     private var petSmallImages = [UIImage]()
     private var imageSize: String!
     let userAlert = UserAlert()
+    var spinner = UIActivityIndicatorView()
     let identifier = "petsTableViewCell"
     
     lazy var searchController: UISearchController = {
@@ -40,6 +41,8 @@ class FavoritesTableViewController: UITableViewController {
         
         setupNavigationBar()
         setupTableView()
+        setupSearchBar()
+        activityIndicator()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +53,9 @@ class FavoritesTableViewController: UITableViewController {
         searchController.searchBar.text = ""
         searchController.searchBar.showsCancelButton = false
         searchController.isActive = false
+        
+        spinner.startAnimating()
+        spinner.backgroundColor = .white
         
         tableView.reloadData()
     }
@@ -121,11 +127,21 @@ class FavoritesTableViewController: UITableViewController {
         switch fetchResult {
         case let .success(pets):
             self.pets = pets
-            tableView.reloadData()
+            self.spinner.stopAnimating()
+            self.spinner.hidesWhenStopped = true
             tableView.reloadData()
         case let .failure(error):
             print(error)
         }
+    }
+    
+    //MARK:- Activity Indicator
+    
+    func activityIndicator() {
+        spinner = UIActivityIndicatorView()
+        spinner.style = UIActivityIndicatorView.Style.medium
+        spinner.center = self.tableView.center
+        self.view.addSubview(spinner)
     }
     
     // MARK: - Table view data source
@@ -160,6 +176,7 @@ class FavoritesTableViewController: UITableViewController {
         cell.petGender.text = item.gender
         cell.petBreed.text = item.breeds.primary
         cell.petImage.image = petSmallImages.first
+        cell.favoriteButton.isHidden = true
         
         return cell
     }
@@ -170,9 +187,6 @@ class FavoritesTableViewController: UITableViewController {
             
             imageSize = "medium"
             _ = getPetPhoto(at: indexPath.row, imageSize: imageSize)
-            
-            //            print(petMediumImages.count)
-            //            print(petMediumImages!)
             
             let petDetailsNavigationController = UINavigationController(rootViewController: PetDetailsViewController())
             let petDetailsViewController = petDetailsNavigationController.topViewController as! PetDetailsViewController
@@ -191,23 +205,11 @@ class FavoritesTableViewController: UITableViewController {
         store.deletePet(at: indexPath.row)
         pets.remove(at: indexPath.row)
         
-        //        for _ in 0..<petSmallImages.count {
-        //            identifier += 1
-        //            let key = petId + String(identifier) + "S"
-        //            imageStore.deleteImage(forKey: key)
-        //        }
-        
         petMediumImages.forEach {_ in
             identifier += 1
             let key = petId + String(identifier) + "S"
             imageStore.deleteImage(forKey: key)
         }
-        
-        //        for _ in 0..<petMediumImages.count {
-        //            identifier += 1
-        //            let key = petId + String(identifier) + "M"
-        //            imageStore.deleteImage(forKey: key)
-        //        }
         
         petMediumImages.forEach {_ in
             identifier += 1
@@ -276,11 +278,9 @@ extension FavoritesTableViewController: UISearchBarDelegate, UISearchResultsUpda
             filteredPets = pets
         }
         
-        print(searchText)
         switch scopeButtonIndex {
         case ScopeButtonIndex.All.rawValue:
             isSearching = false
-            print(scopeButtonIndex)
         case ScopeButtonIndex.Name.rawValue:
             isSearching = true
             filteredPets = pets.filter({ (pet) -> Bool in
@@ -290,22 +290,18 @@ extension FavoritesTableViewController: UISearchBarDelegate, UISearchResultsUpda
             print("type")
             filteredPets = pets.filter({ (pet) -> Bool in
                 return pet.type.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil })
-            print(scopeButtonIndex)
         case ScopeButtonIndex.Breed.rawValue:
             isSearching = true
             filteredPets = pets.filter({ (pet) -> Bool in
                 return pet.breeds.primary.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil })
-            print(scopeButtonIndex)
         case ScopeButtonIndex.Size.rawValue:
             isSearching = true
             filteredPets = pets.filter({ (pet) -> Bool in
                 return pet.size.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil })
-            print(scopeButtonIndex)
         case ScopeButtonIndex.Gender.rawValue:
             isSearching = true
             filteredPets = pets.filter({ (pet) -> Bool in
                 return pet.gender.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil })
-            print(scopeButtonIndex)
         default:
             print("")
         }

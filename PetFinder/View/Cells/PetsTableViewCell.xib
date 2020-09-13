@@ -129,6 +129,7 @@
             <connections>
                 <outlet property="cell" destination="H2p-sc-9uM" id="CW1-1Z-Rzx"/>
                 <outlet property="cellView" destination="FWj-ly-fQ7" id="hQB-yB-pMa"/>
+                <outlet property="favoriteButton" destination="A2q-vH-NiQ" id="L4a-0L-dEu"/>
                 <outlet property="petAge" destination="Xf6-oT-LRz" id="lSm-mQ-bqk"/>
                 <outlet property="petBreed" destination="We4-qz-0FI" id="CiL-CC-I0N"/>
                 <outlet property="petGender" destination="Gwj-NZ-WB5" id="eu1-Tm-C7e"/>
